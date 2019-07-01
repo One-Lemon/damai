@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import styled from './style';
 
-export default class Slist extends Component {
+class Slist extends Component {
   render() {
     return (
       <div>
@@ -8,5 +10,8 @@ export default class Slist extends Component {
       </div>
     )
   }
+  
 }
+
+export default connect()(Slist)
 
