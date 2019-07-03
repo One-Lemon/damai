@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { List } from 'antd';
+import {NavLink} from 'react-router-dom'
 
 
 export function r(px, psd = 350) {
@@ -52,7 +53,6 @@ export  const HeaderWrap = styled.div`
 export const MainWrap = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
-
 `;
 
 export const ListWrap = styled(List)`
@@ -109,4 +109,9 @@ export const FootWrap = styled.div`
       .about-line{
         padding-top: .04rem;
       }
+`
+
+export const UserGreeting = styled(NavLink)`
+`
+export const GuestGreeting = styled(NavLink)`
 `

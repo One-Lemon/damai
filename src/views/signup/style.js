@@ -44,7 +44,7 @@ export const BoxWarp = styled(Form)`
     .ant-input:focus{
       border-color:#fff;
       box-shadow: 0 0 0 2px rgba(29, 165, 122, 0);
-}
+    }
     .ant-btn{
       background-color: #ff1268;
       display: block;

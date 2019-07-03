@@ -1,14 +1,23 @@
 import React, { Component } from 'react'
-import { List } from 'antd';
-import { ListWrap, Wrapper, HeaderWrap, MainWrap, FootWrap } from './style';
-import { NavLink } from 'react-router-dom'
-export default class Mine extends Component {
+import { List, Button } from 'antd';
+import { ListWrap, Wrapper, HeaderWrap, MainWrap, FootWrap, UserGreeting, GuestGreeting } from './style';
+import { connect } from 'react-redux';
+
+
+class Mine extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      display: 'none',
+      isLoggedIn:true
+    }
+  }
   render() {
     return (
       <Wrapper>
         <HeaderWrap >
           <div className='Header-Avator'></div>
-          <p className='Header-name'><NavLink to='/login'>登录/注册</NavLink></p>
+          <p className='Header-name'><Greeting isLoggedIn={this.state.isLoggedIn}/></p>
         </HeaderWrap>
         <MainWrap>
           <ListWrap>
@@ -80,6 +89,7 @@ export default class Mine extends Component {
               <div className='main-right'><span>1010-3721</span></div>
             </List.Item>
           </ListWrap>
+          <BtnGreeting isLoggedIn={this.state.isLoggedIn}/>
           <FootWrap>
             <p className='about-link'>关于大麦</p>
             <p className="about-line">|</p>
@@ -90,4 +100,33 @@ export default class Mine extends Component {
     )
   }
 }
+
+function Greeting(props) {
+  // console.log(props);
+  const userInfo= JSON.parse(window.localStorage.getItem('user'));
+  // console.log(userInfo);
+  // console.log(userInfo[0].username);
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return <UserGreeting to=''>{'欢迎___'+userInfo[0].username}</UserGreeting>;
+  }
+  return <GuestGreeting to='/login'>登录/注册</GuestGreeting>;
+}
+
+function BtnGreeting(props) {
+  const isLoggedIn = props.isLoggedIn;
+  if (isLoggedIn) {
+    return (
+      <ListWrap>
+      <List.Item>
+        <Button style={{width:'100%',border:'0'}} >退出登录</Button>
+      </List.Item>
+    </ListWrap>
+    );
+  }
+  return null;
+}
+
+export default connect(null,null)(Mine)
+
 
