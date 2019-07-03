@@ -1,0 +1,2 @@
+export const GETSLIDELIST = 'GETSLIDELIST';
+export const SETSLIDELIST = 'SETSLIDELIST';

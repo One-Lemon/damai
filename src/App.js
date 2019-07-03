@@ -9,6 +9,7 @@ import Pdetails from '@/views/Pdetails';
 import Plist from '@/views/Plist';
 import Sdetails from '@/views/Sdetails';
 import Slist from '@/views/Slist';
+import Search from '@/views/search';
 
 export default class App extends Component {
   render() {
@@ -18,13 +19,13 @@ export default class App extends Component {
           <Route component={ Login } path='/login'/>
           <Route component={ Signup } path='/signup'/>
           <Route component={ Home } path='/home'/>
-          <Route component={ Address } path='/Address'/>
-          <Route component={ Mine } path='/Mine'/>
-          <Route component={ Mine } path='/Mine'/>
+          <Route component={ Address } path='/address'/>
+          <Route component={ Mine } path='/mine'/>
+          <Route component={ Search } path='/search'/>
           <Route component={ Plist } path='/Plist'/>
-          <Route component={ Pdetails } path='/Pdetails'/>
-          <Route component={ Sdetails } path='/Sdetails'/>
-          <Route component={ Slist } path='/Slist'/>
+          <Route component={ Pdetails } path='/pdetails'/>
+          <Route component={ Sdetails } path='/sdetails'/>
+          <Route component={ Slist } path='/slist'/>
           <Redirect to='/home'/>
         </Switch>
       </Router>
