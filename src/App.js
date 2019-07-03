@@ -4,7 +4,7 @@ import Home from '@/views/home';
 import Login from '@/views/login';
 import Signup from '@/views/signup';
 import Address from '@/views/signup';
-import Mine from '@/views/signup';
+import Mine from '@/views/mine';
 import Pdetails from '@/views/Pdetails';
 import Plist from '@/views/Plist';
 import Sdetails from '@/views/Sdetails';
