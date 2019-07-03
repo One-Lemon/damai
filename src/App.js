@@ -4,7 +4,7 @@ import Home from '@/views/home';
 import Login from '@/views/login';
 import Signup from '@/views/signup';
 import Address from '@/views/signup';
-import Mine from '@/views/signup';
+import Mine from '@/views/mine';
 import Pdetails from '@/views/Pdetails';
 import Plist from '@/views/Plist';
 import Sdetails from '@/views/Sdetails';
@@ -19,8 +19,7 @@ export default class App extends Component {
           <Route component={ Signup } path='/signup'/>
           <Route component={ Home } path='/home'/>
           <Route component={ Address } path='/Address'/>
-          <Route component={ Mine } path='/Mine'/>
-          <Route component={ Mine } path='/Mine'/>
+          <Route component={ Mine } path='/mine'/>
           <Route component={ Plist } path='/Plist'/>
           <Route component={ Pdetails } path='/Pdetails'/>
           <Route component={ Sdetails } path='/Sdetails'/>
