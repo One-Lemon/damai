@@ -6,11 +6,10 @@ module.exports = override(
     libraryName: 'antd',
     libraryDirectory: 'es',
     style: true,
-  }),
-  fixBabelImports('import', {
-    libraryName: 'antd-mobile',
-    style: 'css',
-  }),
+  }, {
+      libraryName: 'antd-mobile',
+      style: 'css',
+    }),
   addLessLoader({
     javascriptEnabled: true,
     modifyVars: { '@primary-color': '#1DA57A' },

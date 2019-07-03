@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { List } from 'antd';
 import { ListWrap, Wrapper, HeaderWrap, MainWrap, FootWrap } from './style';
 import { NavLink } from 'react-router-dom'
-import './style.css'
 export default class Mine extends Component {
   render() {
     return (

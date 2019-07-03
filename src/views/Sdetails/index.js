@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import * as actions from './store/actionCreates';
 import { SingerDetail,SingerBanner,BannerImg,SingerBox,Avator,BottomBox,SingerName,SingerFans,ShowList,Date,Party,PTitle,Padress} from './style';
 import { Icon } from 'antd';
-import '../../styles/base.less';
 
 const MyIcon = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1272983_uk1e3s8tthq.js'

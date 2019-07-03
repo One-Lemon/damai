@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { SlistBox, BgBox, BgPic, MainBox, HeadBox, PageTitle, MiddleSelect, BottmDetail } from './style';
 import { Icon } from 'antd';
-import '../../styles/base.less';
 
 const MyIcon = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1272983_uk1e3s8tthq.js'

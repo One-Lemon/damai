@@ -1687,7 +1687,7 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
 
 antd-mobile@^2.2.14:
   version "2.2.14"
-  resolved "http://r.cnpmjs.org/antd-mobile/download/antd-mobile-2.2.14.tgz#0c3b4da1ef383799ec33f268786860e9cc4533d7"
+  resolved "https://registry.npm.taobao.org/antd-mobile/download/antd-mobile-2.2.14.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fantd-mobile%2Fdownload%2Fantd-mobile-2.2.14.tgz#0c3b4da1ef383799ec33f268786860e9cc4533d7"
   integrity sha1-DDtNoe84N5nsM/JoeGhg6cxFM9c=
   dependencies:
     array-tree-filter "~2.1.0"

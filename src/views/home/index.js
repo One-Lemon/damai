@@ -80,7 +80,7 @@ class Home extends Component {
           <div style={{ marginTop: '.56rem' }}>
             <BigKa>
               大咖在大麦
-            <Link>查看更多 ></Link>
+            <Link to="/">查看更多 ></Link>
             </BigKa>
             <SingList>
               <ul>
