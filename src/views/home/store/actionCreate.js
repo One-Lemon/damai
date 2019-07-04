@@ -60,15 +60,18 @@ export const setProject = data => {
 }
 
 export const getProject = (pageNum) => {
+  let _page = 0;
+  let _limit = 8;
   return dispatch => {
-    axios.get(`http://localhost:3003/project?id=${pageNum}`)
+    axios.get(`http://localhost:3003/project?_page=${_page}&_limit=${_limit}`)
       .then(response => response.data)
       .then(res => {
+        console.log(res);
         if (res.length <= 0) {
           console.log('没数据了');
           return;
         }
-        dispatch(setProject(res[0].data.projectInfo));
+        dispatch(setProject(res));
       }).catch(error => {
         console.log(error);
       })
