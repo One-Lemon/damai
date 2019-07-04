@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Affix } from 'antd';
+import { connect } from 'react-redux'
+import * as actions from './store/actionCreates'
 import { Navcategory, Menulist, Condition, Container, ContentList, ContentImg, ContentRight, ContentRightTitle, ContentRightInfo, ContentRightPrice } from './style'
 
 
-export default class Plist extends Component {
+class Plist extends Component {
   constructor (props) {
     super (props)
     this.state = {
@@ -26,6 +28,7 @@ export default class Plist extends Component {
 
   
   render() {
+    console.log(this.props.list);
     return (
       <div>
         <Affix offsetTop={this.state.top}>
@@ -41,77 +44,44 @@ export default class Plist extends Component {
           </Condition>
         </Affix>
         <Container style={{ width: "100%", height: "100%"}}>
-          <ContentList>
-            <ContentImg>
-              <img src="https://img.alicdn.com/bao/uploaded/i3/2251059038/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg_q60.jpg_.webp" alt="" />
-            </ContentImg>
-            <ContentRight>
-              <ContentRightTitle>
-                “UNINE FAN MEETING TOUR ‘RUN TO U’”全国巡回见面会Ending场
-              </ContentRightTitle>
-              <ContentRightInfo>
-                成都 / 2019.07.27 周六 19:30 / 五粮液成都金融城演艺中心
-              </ContentRightInfo>
-              <ContentRightPrice>
-                ￥499-1299
-              </ContentRightPrice>
-            </ContentRight>
-          </ContentList>
-          <ContentList>
-            <ContentImg>
-              <img src="https://img.alicdn.com/bao/uploaded/i3/2251059038/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg_q60.jpg_.webp" alt="" />
-            </ContentImg>
-            <ContentRight>
-              <ContentRightTitle>
-                “UNINE FAN MEETING TOUR ‘RUN TO U’”全国巡回见面会Ending场
-              </ContentRightTitle>
-              <ContentRightInfo>
-                成都 / 2019.07.27 周六 19:30 / 五粮液成都金融城演艺中心
-              </ContentRightInfo>
-            </ContentRight>
-          </ContentList>
-          <ContentList>
-            <ContentImg>
-              <img src="https://img.alicdn.com/bao/uploaded/i3/2251059038/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg_q60.jpg_.webp" alt="" />
-            </ContentImg>
-            <ContentRight>
-              <ContentRightTitle>
-                “UNINE FAN MEETING TOUR ‘RUN TO U’”全国巡回见面会Ending场
-              </ContentRightTitle>
-              <ContentRightInfo>
-                成都 / 2019.07.27 周六 19:30 / 五粮液成都金融城演艺中心
-              </ContentRightInfo>
-            </ContentRight>
-          </ContentList>
-          <ContentList>
-            <ContentImg>
-              <img src="https://img.alicdn.com/bao/uploaded/i3/2251059038/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg_q60.jpg_.webp" alt="" />
-            </ContentImg>
-            <ContentRight>
-              <ContentRightTitle>
-                “UNINE FAN MEETING TOUR ‘RUN TO U’”全国巡回见面会Ending场
-              </ContentRightTitle>
-              <ContentRightInfo>
-                成都 / 2019.07.27 周六 19:30 / 五粮液成都金融城演艺中心
-              </ContentRightInfo>
-            </ContentRight>
-          </ContentList>
-          <ContentList>
-            <ContentImg>
-              <img src="https://img.alicdn.com/bao/uploaded/i3/2251059038/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg_q60.jpg_.webp" alt="" />
-            </ContentImg>
-            <ContentRight>
-              <ContentRightTitle>
-                “UNINE FAN MEETING TOUR ‘RUN TO U’”全国巡回见面会Ending场
-              </ContentRightTitle>
-              <ContentRightInfo>
-                成都 / 2019.07.27 周六 19:30 / 五粮液成都金融城演艺中心
-              </ContentRightInfo>
-            </ContentRight>
-          </ContentList>
+          {this.props.list.map(item => {
+            return (
+              <ContentList key={item.id}>
+                <ContentImg>
+                  <img src={item.verticalPic} alt="" />
+                </ContentImg>
+                <ContentRight>
+                  <ContentRightTitle>
+                    {item.name}
+                  </ContentRightTitle>
+                  <ContentRightInfo>
+                    {item.logicAddress} / {item.showTime} / {item.venueName}
+                  </ContentRightInfo>
+                  <ContentRightPrice>
+                    ￥{item.priceStr}
+                  </ContentRightPrice>
+                </ContentRight>
+              </ContentList>
+            )
+          })}
         </Container>
       </div>
     )
   }
+
+  componentDidMount () {
+    this.props.handleProjectList()
+  }
 }
+
+export default connect (
+  ({project}) => ({
+    list: project.list
+  }),
+  (dispatch) => ({
+    handleProjectList() {
+      dispatch(actions.asyncProjectList())
+    }
+  })
+)(Plist)
 

@@ -1,11 +1,10 @@
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
-import HomeReducer from '@/views/home/store/reducer';
+import thunk from 'redux-thunk';
+import * as reducers from './reducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export default createStore(
-  combineReducers({
-    home: HomeReducer
-  }),
-  composeEnhancers(applyMiddleware())
+  combineReducers(reducers),
+  composeEnhancers(applyMiddleware(thunk))
 );

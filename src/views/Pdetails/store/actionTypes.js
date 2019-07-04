@@ -1,0 +1,1 @@
+export const DETAILS_LIST = "Pdetails/details_list"
