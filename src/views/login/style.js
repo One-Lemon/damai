@@ -15,15 +15,15 @@ export const HeadWarp = styled.div`
     }
 `
 export const FootWrap = styled(Form)`
-    position: absolute;
+    /* position: absolute;
     top: 3.26667rem;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 0; */
     font-size: 12px;
     margin: 0 auto;
     width: 100%;
-    padding: 0 20px 20px;
+    padding: 0 20px 20px !important;
     -webkit-font-smoothing: antialiased;
     .sc-bxivhb{
       border-bottom:1px solid #e7e7e7;
@@ -36,16 +36,17 @@ export const FootWrap = styled(Form)`
       line-height: 40px;
       display:flex;
       /* justify-content:center; */
-      margin-bottom: 5px;
-      overflow:hidden;
+      margin-bottom: 15px;
+      /* ant-form-item:hidden; */
       border-bottom:1px solid #e7e7e7;
-      li{
+      .ant-list-item{
         font-size: 14px;
-        padding:0 !important;
         color: #666;
         display:flex;
         justify-content:center;
-        width:44px;
+        width:50px;
+        padding:0 0 0 8px;
+        overflow:hidden
       }
       .icon-down{
         border-right: 1px solid #ccc;
@@ -62,12 +63,26 @@ export const FootWrap = styled(Form)`
       .ant-input{
         border:0
       }
+      .ant-form-item-children{
+          .ant-input:focus{
+          border-color:#fff;
+          box-shadow: 0 0 0 2px rgba(29, 165, 122, 0);
+          }
+      }
+
     }
     .ant-form-item{
       border-bottom:1px solid #e7e7e7;
+      background-color: #fff !important
     }
     .ant-input{
         border:0
+      }
+      .ant-input-password{
+        .ant-input:focus{
+          border-color:#fff;
+          box-shadow: 0 0 0 2px rgba(29, 165, 122, 0);
+        }
       }
     .ant-btn{
       background-color: #ff1268;
