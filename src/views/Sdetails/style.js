@@ -33,7 +33,6 @@ export const Avator = styled.div`
   height: 2.9rem;
   border: .05rem solid #fff;
   border-radius:100%;
-  background-image: url("//intercms.damai.cn/artist/pic/1535596053705/1535596053705-main.jpg?x-oss-process=image/quality,q_50/format,webp");
   background-size:cover;
 `
 export const SingerName = styled.p`

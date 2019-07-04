@@ -133,7 +133,6 @@ export const BottmDetail=styled.div`
           flex-direction: row;
           align-items: center;
           .littlePic{
-            background-image: url("https://intercms.damai.cn/artist/pic/1535596053705/1535596053705-main.jpg");
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
@@ -189,9 +188,9 @@ export const BottmDetail=styled.div`
         font-size: .37333rem;
         color: #111;
         .perform-list{
-          max-height: 3.86667rem;
-          overflow: hidden;
-          margin-bottom:.8rem;
+          /* max-height: 3.86667rem; */
+          /* overflow: hidden; */
+          /* margin-bottom:.8rem; */
           .perform-cell{
             display: flex;
             flex-direction: column;
