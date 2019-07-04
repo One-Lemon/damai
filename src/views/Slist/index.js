@@ -108,7 +108,7 @@ class Slist extends Component {
                     </div>
                   )
                 })
-              }
+              } 
 
             </div>
           </BottmDetail>
