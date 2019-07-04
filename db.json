@@ -1,5 +1,6 @@
 {
-  "banner": [{
+  "banner": [
+    {
       "src": "//img.alicdn.com/tps/i4/TB1mQ40efWG3KVjSZFPSutaiXXa.jpg_q60.jpg_.webp"
     },
     {
@@ -15,7 +16,8 @@
       "src": "//img.alicdn.com/tps/i4/TB1WVd1efWG3KVjSZPcSuvkbXXa.jpg_q60.jpg_.webp"
     }
   ],
-  "bigka": [{
+  "bigka": [
+    {
     "api": "mtop.damai.wireless.search.search.artistproject.get",
     "data": {
       "artistProjectList": [{
@@ -63,7 +65,8 @@
     "ret": ["SUCCESS::调用成功"],
     "v": "1.0"
   }],
-  "dateList": [{
+  "dateList": [
+    {
     "index": 0,
     "api": "mtop.damai.wireless.search.project.classify",
     "data": {
@@ -1260,11 +1263,475 @@
       "currentTime": 1562152530771,
       "discountInfo": "",
       "total": 10
+    }
+  }],
+  "Plist": [
+    {
+    "api": "mtop.damai.wireless.search.search",
+    "data": {
+      "currentTime": 1562140974737,
+      "projectInfo": [{
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 39.9083,
+        "isEticket": false,
+        "recReasonType": 1,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "380",
+        "cityName": "北京",
+        "subTitle": "",
+        "venueId": 682,
+        "subHead": "",
+        "id": 597705805772,
+        "isSelectSeat": false,
+        "longitude": 116.280709,
+        "venueCity": "北京",
+        "actores": "范丞丞、周杰伦等",
+        "nearestPerformTime": 1564916400000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.08.04 周日 19:00",
+        "isSnapUp": true,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "北京",
+        "ipvuv": 73567,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "凯迪拉克中心",
+        "priceStr": "380-2019",
+        "upTime": 1562123880000,
+        "isGeneralAgent": true,
+        "tourProjects": [],
+        "recReason": "阵容大咖：范丞丞、周杰伦、梁博",
+        "name": "2019爱奇艺尖叫之夜演唱会北京站",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i2/2251059038/O1CN01qm5k5b2GdSBSazRyn_!!0-item_pic.jpg",
+        "formattedPriceStr": "380-2019",
+        "isHot": true
+      }, {
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 29.525671005249,
+        "isEticket": false,
+        "recReasonType": 2,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "280",
+        "cityName": "重庆",
+        "subTitle": "",
+        "rankingList": {
+          "title": "最新演唱会榜TOP2",
+          "type": 2
+        },
+        "venueId": 258,
+        "subHead": "",
+        "id": 597289724461,
+        "isSelectSeat": true,
+        "longitude": 106.505714416504,
+        "venueCity": "重庆",
+        "actores": "张杰",
+        "nearestPerformTime": 1564228800000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.07.27 周六 20:00",
+        "isSnapUp": false,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "重庆",
+        "ipvuv": 126544,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "重庆奥体中心体育场",
+        "priceStr": "280-1280",
+        "upTime": 1562036400000,
+        "isGeneralAgent": true,
+        "tourProjects": [],
+        "name": "2019张杰【未·LIVE】全球巡回演唱会 重庆站",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i1/2251059038/O1CN01l5TlvN2GdSBQ9raFZ_!!0-item_pic.jpg",
+        "formattedPriceStr": "280-1280"
+      }, {
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 30.574674,
+        "isEticket": false,
+        "recReasonType": 2,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "499",
+        "cityName": "成都",
+        "subTitle": "",
+        "rankingList": {
+          "title": "演唱会人气榜TOP1",
+          "type": 1
+        },
+        "venueId": 92393,
+        "subHead": "",
+        "id": 597617387969,
+        "isSelectSeat": false,
+        "longitude": 104.069678,
+        "venueCity": "成都",
+        "actores": "UNINE",
+        "nearestPerformTime": 1564227000000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.07.27 周六 19:30",
+        "isSnapUp": false,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "成都",
+        "ipvuv": 72450,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "五粮液成都金融城演艺中心",
+        "priceStr": "499-1299",
+        "upTime": 1561604400000,
+        "isGeneralAgent": false,
+        "tourProjects": [],
+        "name": "“UNINE FAN MEETING TOUR ‘RUN TO U’”全国巡回见面会Ending场",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i3/2251059038/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg",
+        "formattedPriceStr": "499-1299"
+      }, {
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 41.309059,
+        "isEticket": false,
+        "recReasonType": 2,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "300",
+        "cityName": "张家口",
+        "subTitle": "",
+        "rankingList": {
+          "title": "最新演唱会榜TOP1",
+          "type": 2
+        },
+        "venueId": 1888004,
+        "subHead": "",
+        "id": 597441078270,
+        "isSelectSeat": false,
+        "longitude": 114.743235,
+        "venueCity": "张家口",
+        "nearestPerformTime": 1564122600000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.07.26-07.28",
+        "isSnapUp": false,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "张家口",
+        "ipvuv": 75864,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "张北中都原始草原度假村",
+        "priceStr": "300-900",
+        "upTime": 1561964280000,
+        "isGeneralAgent": true,
+        "tourProjects": [],
+        "name": "2019张北草原音乐季之草原音乐节",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i1/2251059038/O1CN01hVRxl72GdSBKLmxkQ_!!0-item_pic.jpg",
+        "formattedPriceStr": "300-900"
+      }, {
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 31.642623,
+        "isEticket": false,
+        "recReasonType": 1,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "199",
+        "cityName": "南京",
+        "subTitle": "",
+        "rankingList": {
+          "title": "音乐节人气榜TOP1",
+          "type": 1
+        },
+        "venueId": 71545,
+        "subHead": "",
+        "id": 597448614107,
+        "isSelectSeat": false,
+        "longitude": 118.988087,
+        "venueCity": "南京",
+        "actores": "满舒克、吴青峰等",
+        "nearestPerformTime": 1568354400000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.09.13-09.14",
+        "isSnapUp": false,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "南京",
+        "ipvuv": 69321,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "南京市溧水区天生桥风景区",
+        "priceStr": "199-499",
+        "upTime": 1561515480000,
+        "isGeneralAgent": true,
+        "tourProjects": [],
+        "recReason": "阵容大咖：满舒克、吴青峰、张惠妹",
+        "name": "2019第七届咪豆音乐节PRO",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i1/2251059038/O1CN01aMTX5i2GdSBM1ErRJ_!!0-item_pic.jpg",
+        "formattedPriceStr": "199-499"
+      }, {
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 26.643859,
+        "isEticket": false,
+        "recReasonType": 2,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "480",
+        "cityName": "贵阳",
+        "subTitle": "",
+        "rankingList": {
+          "title": "演唱会必看榜TOP2",
+          "type": 1
+        },
+        "venueId": 54994,
+        "subHead": "",
+        "id": 597200289158,
+        "isSelectSeat": false,
+        "longitude": 106.64554,
+        "venueCity": "贵阳",
+        "actores": "李宗盛",
+        "nearestPerformTime": 1565523000000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.08.11 周日 19:30",
+        "isSnapUp": false,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "贵阳",
+        "ipvuv": 55914,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "贵阳国际会议展览中心一号馆",
+        "priceStr": "480-1580",
+        "upTime": 1561870800000,
+        "isGeneralAgent": true,
+        "tourProjects": [],
+        "name": "2019李宗盛 『有歌之年』演唱会 贵阳",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i4/2251059038/O1CN01idmtx62GdSBItFVlf_!!0-item_pic.jpg",
+        "formattedPriceStr": "480-1580"
+      }, {
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 40.627998,
+        "isEticket": false,
+        "recReasonType": 1,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "280",
+        "cityName": "包头",
+        "subTitle": "",
+        "rankingList": {
+          "title": "演唱会必看榜TOP10",
+          "type": 1
+        },
+        "venueId": 59461,
+        "subHead": "",
+        "id": 596732666358,
+        "isSelectSeat": false,
+        "longitude": 109.920062,
+        "venueCity": "包头",
+        "actores": "安琥、田馥甄等",
+        "nearestPerformTime": 1564833600000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.08.03 周六 20:00",
+        "isSnapUp": false,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "包头",
+        "ipvuv": 228382,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "包头奥林匹克体育中心体育场",
+        "priceStr": "280-1680",
+        "upTime": 1561376280000,
+        "isGeneralAgent": true,
+        "tourProjects": [],
+        "recReason": "阵容大咖：安琥、田馥甄、安心亚、周杰伦、周汤豪、杨瑞代、韦礼安",
+        "name": "2019超级演唱会-包头站",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i3/2251059038/O1CN01BLxfaS2GdSB4SpyLE_!!0-item_pic.jpg",
+        "formattedPriceStr": "280-1680"
+      }, {
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 31.291491,
+        "isEticket": false,
+        "recReasonType": 2,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "280",
+        "cityName": "上海",
+        "subTitle": "",
+        "rankingList": {
+          "title": "演唱会人气榜TOP1",
+          "type": 1
+        },
+        "venueId": 81568,
+        "subHead": "",
+        "id": 596602264640,
+        "isSelectSeat": false,
+        "longitude": 121.453408,
+        "venueCity": "上海",
+        "actores": "GAI",
+        "nearestPerformTime": 1563622200000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.07.20 周六 19:30",
+        "isSnapUp": false,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "上海",
+        "ipvuv": 103351,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "静安体育中心",
+        "priceStr": "280-1080",
+        "upTime": 1561006800000,
+        "isGeneralAgent": true,
+        "tourProjects": [],
+        "name": "GAI周延2019“盖·世”巡回演唱会",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i1/2251059038/O1CN01ALnszE2GdSB8djb0S_!!0-item_pic.jpg",
+        "formattedPriceStr": "280-1080"
+      }, {
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 39.910216,
+        "isEticket": false,
+        "recReasonType": 2,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "280",
+        "cityName": "北京",
+        "subTitle": "",
+        "rankingList": {
+          "title": "演唱会人气榜TOP3",
+          "type": 1
+        },
+        "venueId": 53764,
+        "subHead": "",
+        "id": 596962016282,
+        "isSelectSeat": true,
+        "longitude": 116.280728,
+        "venueCity": "北京",
+        "nearestPerformTime": 1563622200000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.07.20 周六 19:30",
+        "isSnapUp": false,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "北京",
+        "ipvuv": 48455,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "M空间",
+        "priceStr": "280-980",
+        "upTime": 1562040000000,
+        "isGeneralAgent": true,
+        "tourProjects": [],
+        "name": "2019花泽香菜北京歌友会",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i1/2251059038/O1CN01jlfrUt2GdSBJKDpiS_!!0-item_pic.jpg",
+        "formattedPriceStr": "280-980"
+      }, {
+        "promotionTags": [],
+        "logicLabelInfo": {},
+        "siteStatus": 3,
+        "latitude": 21.261043,
+        "isEticket": false,
+        "recReasonType": 1,
+        "type": "1",
+        "categoryName": "演唱会",
+        "priceLow": "380",
+        "cityName": "湛江",
+        "subTitle": "",
+        "rankingList": {
+          "title": "青春独家记忆TOP3",
+          "type": 1
+        },
+        "venueId": 59227,
+        "subHead": "",
+        "id": 596130858656,
+        "isSelectSeat": true,
+        "longitude": 110.435058,
+        "venueCity": "湛江",
+        "actores": "田馥甄、安心亚等",
+        "nearestPerformTime": 1564747200000,
+        "isNewItem": 1,
+        "followStatus": 0,
+        "showTag": "",
+        "showTime": "2019.08.02 周五 20:00",
+        "isSnapUp": false,
+        "showStatus": {
+          "id": 0,
+          "desc": "去购票"
+        },
+        "logicAddress": "湛江",
+        "ipvuv": 318220,
+        "isAtmospheric": false,
+        "isLocal": 0,
+        "venueName": "湛江奥体中心体育场",
+        "priceStr": "380-1880",
+        "upTime": 1561694400000,
+        "isGeneralAgent": true,
+        "tourProjects": [],
+        "recReason": "阵容大咖：田馥甄、安心亚、周杰伦、周汤豪、杨瑞代、韦礼安",
+        "name": "2019超级巨星（湛江）演唱会",
+        "verticalPic": "https://img.alicdn.com/bao/uploaded/i3/2251059038/O1CN01C93Kc32GdSBB9pdcZ_!!0-item_pic.jpg",
+        "formattedPriceStr": "380-1880"
+      }],
+      "total": 562,
+      "discountInfo": "",
+      "_prism_lk": {
+        "_qid": "f65f9752-9d68-11e9-9095-15a0e7bc0d0a",
+        "_skey": "f65f9751-9d68-11e9-9095-d18ad1a70562"
+      }
     },
     "ret": ["SUCCESS::调用成功"],
     "v": "1.0"
   }],
-  "project": [{
+  "project": [
+    {
       "id": 0,
       "api": "mtop.damai.wireless.search.search",
       "data": {
@@ -3053,5 +3520,340 @@
       "ret": ["SUCCESS::调用成功"],
       "v": "1.0"
     }
-  ]
+  ],
+  "Pdetails": [
+    {
+    "detailViewComponentMap": {
+      "item": {
+        "staticData": {
+          "itemBase": {
+            "itemId": "597617387969",
+            "itemName": "【成都】“UNINE FAN MEETING TOUR ‘RUN TO U’”全国巡回见面会Ending场",
+            "subTitle": "",
+            "generalAgent": {
+              "generalAgent": "false"
+            },
+            "cityId": "29403",
+            "nationalStandardCityId": "510100",
+            "cityName": "成都",
+            "categoryId": "50019085",
+            "itemPic": "http://gd3.alicdn.com/imgextra/i3/0/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg",
+            "itemPics": {
+              "itemPicList": [{
+                "picUrl": "http://gd3.alicdn.com/imgextra/i3/0/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg"
+              }]
+            },
+            "seatImg": "https://img.alicdn.com/imgextra/i2/2251059038/O1CN01NjVjIZ2GdSBMZ9VPI_!!2251059038.jpg",
+            "showTime": "2019.07.27 周六 19:30",
+            "showDuration": "演出时长约90分钟（以现场为准）",
+            "hasSkuPopup": "true",
+            "showTag": [],
+            "serviceNotes": [{
+              "isSupport": "false",
+              "tagName": "不支持选座",
+              "tagDesc": "本项目不支持自主选座，同一个订单优先连座"
+            }, {
+              "isSupport": "true",
+              "tagName": "快递票",
+              "tagDesc": "快递票：纸质票会在开票后快递到您留下的收货地址，需您承担邮寄费用。注：离开演时间仅4天时，不再寄送快递票，支持在指定取票地点取票（具体以下单后票夹信息为准）"
+            }, {
+              "isSupport": "true",
+              "tagName": "纸质发票",
+              "tagDesc": "该项目支持开具纸质发票，请您在演出开始前通过订单页补开，发票将在演出结束后1个月左右，统一由主办方提供"
+            }],
+            "oldCompanyId": "1377",
+            "atomSplit": "1",
+            "isHotProject": "true",
+            "isShowHotProjectModel": "true"
+          },
+          "itemExtendInfo": {
+            "itemDescTitle": "演出介绍",
+            "itemExtend": "<p style=\"text-align: center;\"><img width=\"600\" height=\"3401\" src=\"https://img.alicdn.com/imgextra/i1/2251059038/O1CN01tPaWt12GdSBMMB7Kd_!!2251059038.jpg\"></p>"
+          },
+          "ticketNotes": [{
+            "title": "演出时长",
+            "content": "约90分钟（以现场为准）"
+          }, {
+            "title": "限购政策",
+            "content": "每个账号最多购买4张"
+          }, {
+            "title": "实名制",
+            "content": "购买时您需要输入购票人身份证信息，每笔订单对应一个证件号"
+          }, {
+            "title": "退换说明",
+            "content": "票品不支持退换。如无法正常观看，还请自行处理，给您带来不便敬请谅解"
+          }, {
+            "title": "儿童入场说明",
+            "content": "儿童一律凭成人票入场"
+          }, {
+            "title": "入场时间",
+            "content": "提前约90分钟"
+          }, {
+            "title": "座位类型",
+            "content": "请按门票对应位置，有序对号入座"
+          }, {
+            "title": "快递费",
+            "content": "1.同城10.0元，发货后1-3天到达；省内12.0元，发货后1-3天到达；其他地区18.0元，发货后1-3天到达；澳门、香港、台湾40.0元，发货后1-5天到达。\r\n2.演出前4天不支持快递。"
+          }, {
+            "title": "发票说明",
+            "content": "如需发票，请您在演出开始前通过订单页补开，发票将在演出结束后1个月左右，统一由开具方提供"
+          }, {
+            "title": "禁止携带物品",
+            "content": "由于安保和版权的原因，大多数演出、展览及比赛场所禁止携带食品、饮料、专业摄录设备、打火机等物品，请您注意现场工作人员和广播的提示，予以配合"
+          }, {
+            "title": "物品寄存",
+            "content": "无寄存处，请自行保管携带物品"
+          }, {
+            "title": "主要演员（团体）",
+            "content": "UNINE"
+          }, {
+            "title": "最低演出时长",
+            "content": "90分钟"
+          }, {
+            "title": "最低演出曲目数",
+            "content": "6"
+          }, {
+            "title": "大麦网首次开售时全场可售门票总张数",
+            "content": "6073"
+          }],
+          "tips": [],
+          "noticeMatter": {
+            "title": "须知事项",
+            "noticeList": [{
+              "noteTitle": "购票须知",
+              "ticketNoteList": [{
+                "title": "限购说明",
+                "content": "每个账号最多购买4张"
+              }, {
+                "title": "实名制",
+                "content": "购买时您需要输入购票人身份证信息，每笔订单对应一个证件号"
+              }, {
+                "title": "配送信息说明",
+                "content": "本项目不支持修改配送地址，请务必在下单前检查好您的收货地址"
+              }, {
+                "title": "儿童购票说明",
+                "content": "儿童一律凭成人票入场"
+              }, {
+                "title": "座位类型",
+                "content": "请按门票对应位置，有序对号入座"
+              }, {
+                "title": "发票说明",
+                "content": "如需发票，请您在演出开始前通过订单页补开，发票将在演出结束后1个月左右，统一由开具方提供"
+              }, {
+                "title": "退换政策",
+                "content": "票品不支持退换。如无法正常观看，还请自行处理，给您带来不便敬请谅解"
+              }, {
+                "title": "演出时长",
+                "content": "演出时长约90分钟（以现场为准）"
+              }, {
+                "title": "异常订购说明",
+                "content": "对于异常订购行为，大麦网有权在订单成立或者生效之后取消相应订单。异常订购行为包括但不限于以下情形：\n（1）通过同一ID订购超出限购张数的订单；\n（2）经合理判断认为非真实消费者的下单行为，包括但不限于通过批量相同或虚构的支付账号、收货地址（包括下单时填写及最终实际收货地址）、收件人、电话号码订购超出限购张数的订单"
+              }]
+            }, {
+              "noteTitle": "观演须知",
+              "ticketNoteList": [{
+                "title": "入场时间",
+                "content": "演出前约90分钟"
+              }, {
+                "title": "禁止携带物品",
+                "content": "由于安保和版权的原因，大多数演出、展览及比赛场所禁止携带食品、饮料、专业摄录设备、打火机等物品，请您注意现场工作人员和广播的提示，予以配合"
+              }, {
+                "title": "寄存说明",
+                "content": "无寄存处，请自行保管携带物品"
+              }, {
+                "title": "主要演员（团体）",
+                "content": "UNINE"
+              }, {
+                "title": "最低演出时长",
+                "content": "90分钟"
+              }, {
+                "title": "最低演出曲目数",
+                "content": "6"
+              }, {
+                "title": "大麦网首次开售时全场可售门票总张数",
+                "content": "6073"
+              }]
+            }]
+          },
+          "realName": {
+            "type": "2",
+            "credentials": ["1"],
+            "credentialNames": [{
+              "id": "1",
+              "name": "身份证"
+            }],
+            "description": "本项目需要实名制购票，请先进行实名制认证"
+          },
+          "venue": {
+            "venueId": "92393",
+            "venueName": "五粮液成都金融城演艺中心",
+            "venueCityName": "成都市",
+            "lng": 104.0696780000000000000000000,
+            "lat": 30.5746740000000000000000000,
+            "venueAddr": "成都市武侯区锦城大道大魔方演艺中心"
+          },
+          "returnPolicy": {
+            "supportReturn": "false"
+          },
+          "rankListVO": {
+            "id": "181",
+            "name": "演唱会人气榜",
+            "order": "1",
+            "type": "1"
+          }
+        },
+        "dynamicExtData": {
+          "artists": [{
+            "artistId": "72250",
+            "artistName": "UNINE",
+            "archives": "由李汶翰、李振宁、姚明明、管栎、嘉羿、胡春杨、夏瀚宇、陈宥维、何昶希组成。",
+            "picUrl": "https://intercms.damai.cn/artist/pic/1557804097928/1557804097928-main.jpg",
+            "tag": "歌手",
+            "type": "1"
+          }],
+          "tribes": []
+        },
+        "item": {
+          "buyBtnStatus": "204",
+          "buyBtnText": "立即预订",
+          "buyBtnOrigin": "16",
+          "sellStartTime": "1561604400000",
+          "sellStartTimeStr": "06月27日 11:00",
+          "priceRange": "¥499-¥1299",
+          "performBases": [{
+            "name": "07.27 周六",
+            "type": "1",
+            "performBaseTagValue": "2",
+            "performBaseTagDesc": "预售",
+            "timeSpan": "1564156800000",
+            "performs": [{
+              "performId": "210063969",
+              "performName": "2019-07-27 周六 19:30",
+              "itemId": "597617387969",
+              "projectId": "200673008",
+              "chooseSeatType": "6",
+              "saleForm": "2",
+              "supportGroup": "false",
+              "performDate": "1564227000000",
+              "performTime": "2019.07.27 19:30-21:00",
+              "performStartDate": "2019-07-27",
+              "performBeginTime": "19:30",
+              "singleLimit": "4",
+              "skuList": [{
+                "skuId": "4157712061835",
+                "priceId": "221294209",
+                "priceIdOfTC": "221294209",
+                "packagesFlag": "false",
+                "price": 499,
+                "skuName": "499元",
+                "skuStatus": "1",
+                "quantitySellAble": "0",
+                "saq": "0",
+                "quantityWithHolding": "0",
+                "qwh": "0",
+                "skuEnable": "false",
+                "skuTagType": "1",
+                "skuTag": "缺货登记",
+                "promotionTags": ["缺货登记"],
+                "dashPrice": "499",
+                "permissionWithPrivilegeBuy": "true"
+              }, {
+                "skuId": "4157712061836",
+                "priceId": "221280224",
+                "priceIdOfTC": "221280224",
+                "packagesFlag": "false",
+                "price": 599,
+                "skuName": "599元",
+                "skuStatus": "1",
+                "quantitySellAble": "20",
+                "saq": "20",
+                "quantityWithHolding": "1",
+                "qwh": "1",
+                "skuEnable": "true",
+                "skuTagType": "0",
+                "promotionTags": [],
+                "dashPrice": "599",
+                "permissionWithPrivilegeBuy": "true"
+              }, {
+                "skuId": "4157712061837",
+                "priceId": "221272196",
+                "priceIdOfTC": "221272196",
+                "packagesFlag": "false",
+                "price": 799,
+                "skuName": "799元",
+                "skuStatus": "1",
+                "quantitySellAble": "20",
+                "saq": "20",
+                "quantityWithHolding": "1",
+                "qwh": "1",
+                "skuEnable": "true",
+                "skuTagType": "0",
+                "promotionTags": [],
+                "dashPrice": "799",
+                "permissionWithPrivilegeBuy": "true"
+              }, {
+                "skuId": "4157712061838",
+                "priceId": "221273179",
+                "priceIdOfTC": "221273179",
+                "packagesFlag": "false",
+                "price": 999,
+                "skuName": "999元",
+                "skuStatus": "1",
+                "quantitySellAble": "0",
+                "saq": "0",
+                "quantityWithHolding": "0",
+                "qwh": "0",
+                "skuEnable": "false",
+                "skuTagType": "1",
+                "skuTag": "缺货登记",
+                "promotionTags": ["缺货登记"],
+                "dashPrice": "999",
+                "permissionWithPrivilegeBuy": "true"
+              }, {
+                "skuId": "4157712061839",
+                "priceId": "221283207",
+                "priceIdOfTC": "221283207",
+                "packagesFlag": "false",
+                "price": 1299,
+                "skuName": "1299元",
+                "skuStatus": "1",
+                "quantitySellAble": "0",
+                "saq": "0",
+                "quantityWithHolding": "0",
+                "qwh": "0",
+                "skuEnable": "false",
+                "skuTagType": "1",
+                "skuTag": "缺货登记",
+                "promotionTags": ["缺货登记"],
+                "dashPrice": "1299",
+                "permissionWithPrivilegeBuy": "true"
+              }],
+              "performTagValue": "2",
+              "performTagDesc": "预售",
+              "promotionTags": ["预售"],
+              "performDesc": "按付款顺序配票，优先连座配票",
+              "permissionWithPrivilegeBuy": "true",
+              "privilegeLimitBuy": "99999"
+            }],
+            "promotionTags": ["预售"],
+            "permissionWithPrivilegeBuy": "true"
+          }],
+          "performCount": "1",
+          "hasItemCouponTag": "false",
+          "hasItemPromotionTag": "false",
+          "needRealNameCertified": "false",
+          "appNeedUpGrade": "false",
+          "showQRCode": "false",
+          "statusNotice": {
+            "prefixText": "预售",
+            "notice": "本商品为预售商品，正式开票后将在第一时间为您配送",
+            "hasPopup": "true",
+            "popupTitle": "重要通知",
+            "popupContent": "预售期间，由于主办未正式开票，下单后无法立即配送票品。一般演出前2-6周出票，待正式开票后将在第一时间为您配送，请耐心等待。纸质票购票后可在订单详情页查看物流信息"
+          },
+          "mstationQRCode": "https://damai-item.oss-cn-beijing.aliyuncs.com/projQcode/5976173879/2/597617387969.jpg"
+        }
+      }
+    }
+  }]
 }
