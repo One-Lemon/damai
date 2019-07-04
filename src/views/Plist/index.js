@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Affix } from 'antd';
+import { Affix, Icon } from 'antd';
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import * as actions from './store/actionCreates'
 import { Navcategory, Menulist, Condition, Container, ContentList, ContentImg, ContentRight, ContentRightTitle, ContentRightInfo, ContentRightPrice } from './style'
@@ -22,46 +23,63 @@ class Plist extends Component {
         { id: 9, name: "展览休闲" },
         { id: 10, name: "二次元" },
         { id: 11, name: "旅游展览" }
+      ],
+      conditionlist: [
+        { id: 1, name: "全国" },
+        { id: 2, name: "全部时间" },
+        { id: 3, name: "推荐顺序", le: "yes"},
+        { id: 4, name: "距离最近", aa: "no"},
       ]
     }
   }
 
   
   render() {
-    console.log(this.props.list);
     return (
       <div>
         <Affix offsetTop={this.state.top}>
           <Navcategory>
             <Menulist>
               {this.state.menulist.map( item => {
-                return ( <li key={item.id}>{item.name}</li>)
+                return ( <li className="category-wrapper_item" key={item.id}>{item.name}</li>)
               })}
             </Menulist>
           </Navcategory>
           <Condition>
-            
+            <ul className="factor_wrapper hairline-bottom">
+              {this.state.conditionlist.map(item => {
+                return (
+                  <li className={item.le ? "factor_wrapper_item factor_wrapper_active" : "factor_wrapper_item"} key={item.id}>
+                  <span className="home-top__city__cityname">{item.name}</span>
+                  {item.aa ? "" : <Icon type="caret-down" />}
+              </li>
+                )
+              })}
+              
+            </ul>
           </Condition>
         </Affix>
         <Container style={{ width: "100%", height: "100%"}}>
           {this.props.list.map(item => {
             return (
-              <ContentList key={item.id}>
-                <ContentImg>
-                  <img src={item.verticalPic} alt="" />
-                </ContentImg>
-                <ContentRight>
-                  <ContentRightTitle>
-                    {item.name}
-                  </ContentRightTitle>
-                  <ContentRightInfo>
-                    {item.logicAddress} / {item.showTime} / {item.venueName}
-                  </ContentRightInfo>
-                  <ContentRightPrice>
-                    ￥{item.priceStr}
-                  </ContentRightPrice>
-                </ContentRight>
-              </ContentList>
+              <Link to={`/Pdetails/${item.id}`} key={item.id}>
+                <ContentList >
+                  <ContentImg>
+                    <img src={item.verticalPic} alt="" />
+                  </ContentImg>
+                  <ContentRight>
+                    <ContentRightTitle>
+                      {item.name}
+                    </ContentRightTitle>
+                    <ContentRightInfo>
+                      {item.logicAddress} / {item.showTime} / {item.venueName}
+                    </ContentRightInfo>
+                    <ContentRightPrice>
+                      ￥{item.priceStr}
+                    </ContentRightPrice>
+                  </ContentRight>
+                </ContentList>
+              </Link>
             )
           })}
         </Container>

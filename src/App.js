@@ -22,7 +22,7 @@ export default class App extends Component {
           <Route component={ Mine } path='/Mine'/>
           <Route component={ Mine } path='/Mine'/>
           <Route component={ Plist } path='/Plist'/>
-          <Route component={ Pdetails } path='/Pdetails'/>
+          <Route component={ Pdetails } path='/Pdetails/:id'/>
           <Route component={ Sdetails } path='/Sdetails'/>
           <Route component={ Slist } path='/Slist'/>
           <Redirect to='/home'/>

@@ -1,7 +1,8 @@
 import * as Types from './actionTypes'
 
 const initState = {
-  list: []
+  list: [],
+  recomlist: []
 }
 
 export default (state = initState, action) => {
@@ -9,6 +10,10 @@ export default (state = initState, action) => {
   
   if(action.type === Types.DETAILS_LIST) {
     newState.list = action.data
+  }
+  
+  if(action.type === Types.RECOMMENDED_LIST) {
+    newState.recomlist = action.recomlist
   }
   
   return newState
