@@ -71,10 +71,6 @@ export const FootWrap = styled(Form)`
       }
 
     }
-    .ant-form-item{
-      border-bottom:1px solid #e7e7e7;
-      background-color: #fff !important
-    }
     .ant-input{
         border:0
       }
@@ -111,6 +107,10 @@ export const FootWrap = styled(Form)`
     .ant-input::-webkit-input-placeholder{
             color:#666
         }
+    .input:-internal-autofill-selected{
+      border-bottom:1px solid #e7e7e7;
+      background-color: rgb(0, 0, 0) !important;
+    }
 `
 // export const FieldCode = styled.div`
 //   display:flex;
