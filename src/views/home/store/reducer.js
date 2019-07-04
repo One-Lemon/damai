@@ -1,11 +1,27 @@
-import { SETSLIDELIST } from './actionType';
+import { SETSLIDELIST, SETBIGKALIST, SETDATELIST, SETPROJECT } from './actionType';
 const initState = {
-  slideList: []
+  slideList: [],
+  bigKaList: [],
+  dateList: [],
+  project: []
 }
 export default (state = initState, action) => {
   let newState = JSON.parse(JSON.stringify(state));
-  if (action.type === SETSLIDELIST) {
-    newState.slideList = action.data
+  switch (action.type) {
+    case SETSLIDELIST:
+      newState.slideList = action.data;
+      break;
+    case SETBIGKALIST:
+      newState.bigKaList = action.data;
+      break;
+    case SETDATELIST:
+      newState.dateList = action.data.currentCity;
+      break;
+    case SETPROJECT:
+      newState.project = action.data;
+      break;
+    default:
+      break;
   }
   return newState;
 }

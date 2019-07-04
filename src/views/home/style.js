@@ -13,6 +13,13 @@ export const HomeBox = styled.div`
 export const HomeContent = styled.div`
   flex: 1;
   overflow-y: auto;
+  .recent-title{
+    font-weight: 700;
+    padding-left: .48rem;
+    margin-top: .6rem;
+    font-size: .45333rem;
+    color: #111;
+  }
 `
 export const SearchBox = styled.div`
   display: flex;
@@ -108,6 +115,43 @@ export const SingList = styled.div`
       border-radius: .08rem;
       box-shadow: 0 0.08rem 0.4rem 0 rgba(0,0,0,.05);
       height: 3.0rem;
+      .art-top{
+        display: flex;
+        align-items: center;
+        .art-img{
+          width: 1.33333rem;
+          height: 1.33333rem;
+          margin: .37333rem .24rem .37333rem 0;
+          border-radius: 50%;
+        }
+        .art-info{
+          flex: 1;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          span{
+            font-size: .26667rem;
+            color: #888;
+          }
+        }
+        .love{
+          padding: 0 .24rem;
+          width: 1.52rem;
+          /* height: .69333rem; */
+          box-sizing: border-box;
+          line-height: .69333rem;
+          font-size: .32rem;
+          text-align: center;
+          color: #ff1268;
+          border: 1px solid #ff1268;
+          border-radius: 1.33333rem;
+        }
+      }
+      .art-bottom{
+         display: flex;
+         justify-content:space-between;
+         align-items:center; 
+      }
     }
   }
 `
@@ -130,6 +174,9 @@ export const Recent = styled.div`
     margin: 0 .48rem .64rem;
     color: #999;
     font-size: .37333rem;
+    .dataActive{
+      color:black;
+    }
   }
   .card{
     position: relative;
@@ -150,7 +197,6 @@ export const Recent = styled.div`
         width: 4rem;
         height: 5.84rem;
         margin-right: .32rem;
-        background-color: pink; 
         flex-direction: column;
         border-radius: .10667rem;
         .card-pic{
@@ -160,8 +206,11 @@ export const Recent = styled.div`
           width: 4rem;
           height: 5.84rem;
           border-radius: .10667rem;
+          img{
+            width: 100%;
+          }
         }
-        .title{
+        .card-name{
           margin-top: .32rem;
           margin-bottom: .16rem;
           font-size: .37333rem;
@@ -169,6 +218,115 @@ export const Recent = styled.div`
           text-overflow: ellipsis;
           overflow: hidden;
           white-space: nowrap;
+        }
+      }
+    }
+  }
+`
+export const Menus = styled.div`
+  padding-top: .21333rem;
+  position: sticky;
+  top: -.21333rem;
+  background: white;
+  z-index: 888;
+  .typeList {
+    position: relative;
+    color: #111;
+    background: #fff;
+    height: 1.38667rem;
+    text-align: center;
+    line-height: 1.38667rem;
+    font-size: .37333rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .content{
+    display: flex;
+    flex-direction: column;
+    ul {
+      padding: 0 0 0 .55rem;
+      background: #fff;
+      max-height: 7.46667rem;
+      overflow-y: auto;
+    }
+    li {
+      position: relative;
+      height: 1.33333rem;
+      line-height: 1.33333rem;
+      font-size: .32rem;
+      color: #111;
+      border-bottom: 1px solid #e7e7e7;
+    }
+  }
+`
+export const ProList = styled.div`
+  color:red;
+  .pro-card{
+    margin: .48rem;
+    margin-bottom: .96rem;
+    display: flex;
+    .pro-left{
+      font-size: 0;
+      height: 3.2rem;
+      img{
+        width: 2.4rem;
+        height: 3.2rem;
+        border-radius: .08rem;
+        border: 1px solid rgba(0,0,0,.06);
+      }
+    }
+    .pro-right{
+      flex:1;
+      margin-left: .32rem;
+      padding-bottom: 0;
+      position: relative;
+      .pro-title{
+        font-size: .42667rem;
+        color: #111;
+        font-weight: 700;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+      }
+      .pro-time{
+        width: 6.32rem;
+        font-size: .32rem;
+        color: #aaa;
+        padding-top: .16rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+      }
+      .pro-promotion {
+        font-size: 0;
+        span{
+          display: inline-block;
+          padding: .01333rem .08rem .04rem;
+          font-size: .29333rem;
+          color: #111;
+          margin-top: .26667rem;
+          margin-right: .08rem;
+          background: #eee;
+          border-radius: .08rem .08rem .21333rem .08rem;
+          line-height: normal;
+          border: none;
+        }
+      }
+      .pro-price{
+        position: absolute;
+        bottom: 0;
+        width: 98%;
+        margin-top: .26667rem;
+        font-size: 0;
+        span{
+          font-size: .37333rem;
+          color: #ff1268;
+          display: inline-block;
+          line-height: 1;
         }
       }
     }

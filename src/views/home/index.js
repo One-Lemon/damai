@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { Icon } from 'antd';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { HomeHead, BigKa, SingList, Recent, HomeBox, HomeContent, SearchBox } from './style';
 import { connect } from 'react-redux';
-import { Icons, MenuNav, SlideShow } from './components';
+import { Icons, SlideShow } from './components';
+import Projuct from './components/project';
+import { MenuNav } from './components/menuNav';
+import { getBigKaList, getDateList } from './store/actionCreate';
 
 const MyIcon = Icon.createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_1270780_bgsg0nlkspg.js'
+  scriptUrl: '//at.alicdn.com/t/font_1270780_uptpx68v6nb.js'
 })
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dateList: ['今天', '明天']
+      dayList: ['今天', '明天'],
+      activeClass: [1, 0, 0, 0, 0, 0, 0]
     }
   }
   // 获取日期
@@ -45,19 +49,42 @@ class Home extends Component {
       default:
         break;
     }
-    let newDate = this.state.dateList;
+    let newDate = this.state.dayList;
     newDate = newDate.concat(date);
     this.setState({
-      dateList: newDate
+      dayList: newDate
     })
   }
-  
+  goSinger(id) {
+    this.props.history.push(`/sdetails?artistId=${id}`);
+  }
+
+  reDateList(index) {
+    let newArr = this.state.activeClass;
+    for (let i = 0; i < newArr.length; i++) {
+      if (i === index) {
+        newArr[i] = 1;
+      } else {
+        newArr[i] = 0;
+      }
+    }
+    this.setState({
+      activeClass: newArr
+    })
+    this.props.getDateList(index);
+  }
+
   componentDidMount() {
     this.getDateList();
+    this.props.getDateList(0);
+    this.props.getBigKaList();
+  }
+  boxScroll = (e) => {
+    console.log('剩余', e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight)
   }
   render() {
     return (
-      <HomeBox>
+      <HomeBox >
         <HomeHead>
           <Link to="/address" className="address">
             <MyIcon type="icon-gps" style={{ fontSize: '.5rem', marginRight: '4px' }} />
@@ -73,20 +100,41 @@ class Home extends Component {
             <MyIcon type="icon-yonghu" />
           </Link>
         </HomeHead>
-        <HomeContent>
+        <HomeContent onScroll={this.boxScroll}>
           <SlideShow />
           <Icons />
           <img src="./images/boss.jpg" alt="boss" style={{ width: '100%' }} />
           <div style={{ marginTop: '.56rem' }}>
             <BigKa>
               大咖在大麦
-            <Link to="/">查看更多 ></Link>
+            <Link to="/">查看更多<MyIcon type="icon-gengduo" /></Link>
             </BigKa>
             <SingList>
               <ul>
-                <li>123</li>
-                <li>123</li>
-                <li>123</li>
+                {
+                  this.props.bigKaList.map(item => {
+                    let url = 'url(' + item.artPic + ')';
+                    let fans = (item.artFans / 10000).toFixed(1);
+                    return (
+                      <li key={item.artistId} onClick={this.goSinger.bind(this, item.artistId)}>
+                        <div className="art-top">
+                          <div className="art-img" style={{ background: url, backgroundSize: 'cover' }} />
+                          <div className="art-info">
+                            <p>{item.artistName}</p>
+                            <span>{fans}万粉丝数</span>
+                          </div>
+                          <div className="love">
+                            <MyIcon type="icon-xihuan" />关注
+                          </div>
+                        </div>
+                        <div className="art-bottom">
+                          <p>最近5场演出</p>
+                          <MyIcon type="icon-gengduo" />
+                        </div>
+                      </li>
+                    )
+                  })
+                }
               </ul>
             </SingList>
           </div>
@@ -97,35 +145,35 @@ class Home extends Component {
             </div>
             <div className="date">
               {
-                this.state.dateList.map((item, index) => {
-                  return <NavLink key={index} to="/">{item}</NavLink>
+                this.state.dayList.map((item, index) => {
+                  return <div key={index} className={this.state.activeClass[index] ? "dataActive" : ""}
+                    onClick={this.reDateList.bind(this, index)}>{item}</div>
                 })
               }
             </div>
             <div className="card">
               <ul>
-                <li>
-                  <div className="card-pic">
-                    123
-                </div>
-                  <p className="title">459</p>
-                </li>
-                <li>
-                  <div className="card-pic">
-                    123
-                </div>
-                  <p className="title">459</p>
-                </li>
-                <li>
-                  <div className="card-pic">
-                    123
-                </div>
-                  <p className="title">459</p>
-                </li>
+                {
+                  this.props.dateList.map(item => {
+                    return (
+                      <li key={item.id}>
+                        <div className="card-pic">
+                          <img src={item.verticalPic} alt="item.name" />
+                          <div>
+                            <p className="card-name">{item.name}</p>
+                            <p className="card-price">￥{item.priceLow} 起</p>
+                          </div>
+                        </div>
+                      </li>
+                    )
+                  })
+                }
               </ul>
             </div>
           </Recent>
+          <div className="recent-title">更多演出</div>
           <MenuNav />
+          <Projuct />
         </HomeContent>
       </HomeBox>
     )
@@ -134,13 +182,19 @@ class Home extends Component {
 
 const mapStateToProps = (state) => {
   return {
-
+    bigKaList: state.home.bigKaList,
+    dateList: state.home.dateList
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-
+    getBigKaList: () => {
+      dispatch(getBigKaList());
+    },
+    getDateList: index => {
+      dispatch(getDateList(index));
+    }
   }
 }
 
