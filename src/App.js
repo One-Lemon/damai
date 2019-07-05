@@ -24,7 +24,7 @@ export default class App extends Component {
           <Route component={ Search } path='/search'/>
           <Route component={ Plist } path='/Plist'/>
           <Route component={ Pdetails } path='/pdetails'/>
-          <Route component={ Sdetails } path='/sdetails'/>
+          <Route component={ Sdetails } path='/sdetails/:id'/>
           <Route component={ Slist } path='/slist'/>
           <Redirect to='/home'/>
         </Switch>
