@@ -27,7 +27,7 @@ export class IconList extends Component {
 	}
 	iconGo = () => {
 		console.log(123)
-		this.props.history.push('/search');
+		this.props.history.push('/plist');
 	}
 	render() {
 		return (
