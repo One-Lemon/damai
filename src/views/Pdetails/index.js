@@ -17,53 +17,49 @@ class Pdetails extends Component {
     }
   }
   render() {
-    console.log(this.props.list.staticData);
+    let data = this.props.list ? this.props.list : {}
     return (
       <Main>
         <Content>
           <DetailTop>
-            <div className="bg-default" style={{backgroundImage: "url(https://gd2.alicdn.com/imgextra/i3/0/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg_400x400)"}}>
+            <div className="bg-default" style={{backgroundImage: `url(${data.staticData ?data.staticData.itemBase.itemPic:''})`}}>
             </div>
             <div className="container">
               <div className="imgframe">
-                <div className="img" style={{backgroundImage: "url(https://gd2.alicdn.com/imgextra/i3/0/O1CN01MncWU52GdSBD0Cknv_!!0-item_pic.jpg_400x400)"}}></div>
+                <div className="img" style={{backgroundImage: `url(${data.staticData ?data.staticData.itemBase.itemPic:''})`}}></div>
               </div>
               <div className="right-content">
                 <div className="right-content-top">
                   <p className="title">
-                    {/* {this.props.list[0].staticData.itemBase} */}
+                    {data.staticData?data.staticData.itemBase.itemName:''}
                   </p>
                 </div>
                 <div className="right-content-bottom">
-                  <span className="price">¥499-¥1299</span>
+                  <span className="price">{data.item?data.item.priceRange:''}</span>
                 </div>
               </div>
             </div>
           </DetailTop>
           <ServiceBar>
-            <div className="service-item">
-              <Icon type="close-circle" />
-              <div className="text">不支持选座</div>
-            </div>
-            <div className="service-item">
-              <Icon type="check-circle" />
-              <div className="text">快递票</div>
-            </div>
-            <div className="service-item">
-              <Icon type="check-circle" />
-              <div className="text">纸质发票</div>
-            </div>
+            {data.staticData ? data.staticData.itemBase.serviceNotes.map((item, index) => {
+              return (
+                <div className="service-item" key={index}>
+                  <Icon type={item.isSupport === "true" ? "check-circle" : "close-circle" } />
+                  <div className="text">{item.tagName}</div>
+                </div>
+              )
+            }) : ''}
           </ServiceBar>
           <DetailTimeInfo>
             <div className="left">
               <div className="time">
                 <span className="time-str">
-                  2019.07.27 周六 19:30
+                  {data.staticData?data.staticData.itemBase.showTime:''}
                 </span>
                 <Icon type="right" />
               </div>
               <div className="time-desc">
-                演出时长约90分钟（以现场为准）
+                {data.staticData?data.staticData.itemBase.showDuration:''}
               </div>
             </div>
             <div className="right">
@@ -75,10 +71,10 @@ class Pdetails extends Component {
           <LocationInfo>
             <div className="location-left">
               <p className="location-left-city single-line">
-                成都市 | 五粮液成都金融城演艺中心
+                {data.staticData ? data.staticData.venue.venueCityName : ''} | {data.staticData ? data.staticData.venue.venueName : ''}
               </p>
               <p className="location-left-address single-line">
-                成都市武侯区锦城大道大魔方演艺中心
+              {data.staticData ? data.staticData.venue.venueAddr : ''}
               </p>
             </div>
             <div className="location-right">
@@ -87,15 +83,14 @@ class Pdetails extends Component {
           </LocationInfo>
           <SectionPadding />
           <SectionTitle>
-            <div className="title-text">演出介绍</div>
+            <div className="title-text">
+              {data.staticData? data.staticData.itemExtendInfo.itemDescTitle : ''}
+            </div>
           </SectionTitle>
           <CellContent>
             <div className="project-detail-html" style={{overflow:"hidden",height: "190px"}}>
               <div className="project-readmore__bg"></div>
-              <div className="item-detail-html-box">
-                <p>
-                  <img alt="" src="https://img.alicdn.com/imgextra/i1/2251059038/O1CN01tPaWt12GdSBMMB7Kd_!!2251059038.jpg_620x10000Q75s200_.webp"/>
-                </p>
+              <div className="item-detail-html-box" dangerouslySetInnerHTML={{ __html:data.staticData ? data.staticData.itemExtendInfo.itemExtend : ''}}>
               </div>
             </div>
             <div className="project-readmore">展开更多</div>
@@ -104,7 +99,27 @@ class Pdetails extends Component {
             <SectionTitle>
               <div className="title-text">演出阵容</div>
             </SectionTitle>
-            <div className="artist-card">
+            {data.dynamicExtData ? data.dynamicExtData.artists.map((item, index) => {
+                return (
+                  <div className="artist-card" key={index}>
+                    <div className="artist-card-img" style={{backgroundImage: `url(${item.picUrl})`}}>
+                    </div>
+                    <div className="artist-card-content">
+                      <div className="artist-card-content-top">
+                        <span>{item.artistName}</span>
+                        <div className="btn">
+                          <Icon type="plus" />
+                          关注
+                        </div>
+                      </div>
+                      <div className="artist-card-content-archives">
+                        {item.archives}
+                      </div>
+                    </div>
+                  </div>
+                )
+              }) : ''}
+            {/* <div className="artist-card">
               <div className="artist-card-img" style={{backgroundImage: "url(https://intercms.damai.cn/artist/pic/1557804097928/1557804097928-main.jpg)"}}>
               </div>
               <div className="artist-card-content">
@@ -119,14 +134,34 @@ class Pdetails extends Component {
                   由李汶翰、李振宁、姚明明、管栎、嘉羿、胡春杨、夏瀚宇、陈宥维、何昶希组成。
                 </div>
               </div>
-            </div>
+            </div> */}
           </ArtistCardWrapper>
           <SectionPadding />
           <NoticeSection>
             <SectionTitle>
-              <div className="title-text">须知事项</div>
+              <div className="title-text">{data.staticData ? data.staticData.noticeMatter.title : ''}</div>
             </SectionTitle>
-            <div className="subtitle">购票须知</div>
+            {data.staticData ? data.staticData.noticeMatter.noticeList.map((item,index) => {
+              return (
+                <div key={index}>
+                  <div className={index===0 ? "subtitle" : "subtitle subtitle-margin-top"}>{item.noteTitle}</div>
+                  {item.ticketNoteList.map((item,index) => {
+                    return (
+                      <div className="notice-content" key={index}>
+                        <div className="info-item">
+                          <div className="item-title">
+                            <Icon type="check-circle" />
+                            <div className="text">{item.title}</div>
+                          </div>
+                          <div className="item-text">{item.content}</div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              )
+            }) : ''}
+            {/* <div className="subtitle">购票须知</div>
             <div className="notice-content">
               <div className="info-item">
                 <div className="item-title">
@@ -179,30 +214,34 @@ class Pdetails extends Component {
               <div className="read-more">
                 <div className="text">全部7条观演须知</div>
               </div>
-            </div>
+            </div> */}
           </NoticeSection>
           <DetailSuggest>
             <h4 className="detail-suggest-title">为你推荐</h4>
-            <DetailSuggestItem>
-              <div className="project-item">
-                <div className="project-item_pic">
-                  <img alt="" className="project-item_pic_poster" src="https://img.alicdn.com/bao/uploaded/i3/2251059038/O1CN013X5ghV2GdSBEHz0FI_!!0-item_pic.jpg_q60.jpg_.webp"/>
-                </div>
-                <div className="project-item_info">
-                  <div className="project-item_info_title project-item_limit_lines_2 project-item_info_title_line">
-                    <span>施展【UNLOCK THE MIRACLE】解锁奇迹FAN MEETING</span>
+            {this.props.recomlist.map(item => {
+              return (
+                <DetailSuggestItem key={item.id}>
+                  <div className="project-item">
+                    <div className="project-item_pic">
+                      <img alt="" className="project-item_pic_poster" src={item.verticalPic}/>
+                    </div>
+                    <div className="project-item_info">
+                      <div className="project-item_info_title project-item_limit_lines_2 project-item_info_title_line">
+                        <span>{item.name}</span>
+                      </div>
+                      <div className="project-item_info_time project-item_limit_lines_1">
+                        {item.cityName} / {item.showTime} / {item.venueName}
+                      </div>
+                      <div className="project-item_info_price">
+                        <span className="project-item_info_price_str">
+                          ￥{item.priceStr}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="project-item_info_time project-item_limit_lines_1">
-                    成都 / 2019.07.27 周六 19:30 / 华熙LIVE·528M空间
-                  </div>
-                  <div className="project-item_info_price">
-                    <span className="project-item_info_price_str">
-                      ￥280-880
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </DetailSuggestItem>
+                </DetailSuggestItem>
+              )
+            })}
           </DetailSuggest>
         </Content>
         <Affix offsetBottom={this.state.bottom}>
@@ -216,7 +255,7 @@ class Pdetails extends Component {
               <p className="leftMsg">想看</p>
             </BottomLeft>
             <BuyButton>
-              <p className="buybuttontext">立即预订</p>
+              <p className="buybuttontext">{data.item ? data.item.buyBtnText : ''}</p>
             </BuyButton>
           </Bottom>
         </Affix>
@@ -225,17 +264,23 @@ class Pdetails extends Component {
   }
 
   componentDidMount () {
-    this.props.handleDetailstList()
+    let id = this.props.match.params.id
+    this.props.handleDetailstList(id)
+    this.props.handleRecommendedList()
   }
 }
 
 export default connect (
   ({pdetails}) => ({
-    list: pdetails.list
+    list: pdetails.list,
+    recomlist: pdetails.recomlist
   }),
   (dispatch) => ({
-    handleDetailstList () {
-      dispatch(actions.asyncDetailsList())
+    handleDetailstList (id) {
+      dispatch(actions.asyncDetailsList(id))
+    },
+    handleRecommendedList () {
+      dispatch(actions.asyncRecommendedList())
     }
   })
 )(Pdetails)

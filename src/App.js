@@ -26,11 +26,11 @@ export default class App extends Component {
           <AuthRoute component={ Mine } path='/mine'/>
           <Route component={ Search } path='/search'/>
           <Route component={ Plist } path='/Plist'/>
-          <Route component={ Pdetails } path='/pdetails'/>
-          <Route component={ Sdetails } path='/sdetails'/>
-          <Route component={ Slist } path='/slist'/>
           <Route component={ Order } path='/order'/>
           <Route component={ Coupon } path='/coupon'/>
+          <Route component={ Pdetails } path='/Pdetails/:id'/>
+          <Route component={ Sdetails } path='/Sdetails'/>
+          <Route component={ Slist } path='/Slist'/>
           <Redirect to='/home'/>
         </Switch>
       </Router>

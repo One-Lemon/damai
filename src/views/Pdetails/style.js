@@ -352,6 +352,10 @@ export const CellContent = styled.div`
   padding: 0;
   margin: 0;
   background-color: #fff;
+  h1,h2,h3,h4,h5,h6 {
+    font-size: .32rem;
+    font-weight: 500;
+  }
   .project-detail-html {
     position: relative;
     display: flex;
