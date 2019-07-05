@@ -48,8 +48,11 @@ class Sdetails extends Component {
     )
   }
   componentDidMount() {
-    this.props.handleSingerDetails();
+    let id=this.props.match.params.id
+    this.props.handleSingerDetails(id);
+    // console.log(id)
   }
+
 }
 
 export default connect(
@@ -57,8 +60,8 @@ export default connect(
     performanceList: sdetails.performanceList
   }),
   dispatch => ({
-    handleSingerDetails() {
-      dispatch(actions.asyncGetSingerDetail())
+    handleSingerDetails(id) {
+      dispatch(actions.asyncGetSingerDetail(id))
     }
   })
 )(Sdetails);

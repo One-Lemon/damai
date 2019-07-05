@@ -29,8 +29,8 @@ export default class App extends Component {
           <Route component={ Order } path='/order'/>
           <Route component={ Coupon } path='/coupon'/>
           <Route component={ Pdetails } path='/Pdetails/:id'/>
-          <Route component={ Sdetails } path='/Sdetails'/>
           <Route component={ Slist } path='/Slist'/>
+          <Route component={ Sdetails } path='/sdetails/:id'/>
           <Redirect to='/home'/>
         </Switch>
       </Router>

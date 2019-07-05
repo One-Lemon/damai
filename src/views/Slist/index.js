@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { SlistBox, BgBox, BgPic, MainBox, HeadBox, PageTitle, MiddleSelect, BottmDetail } from './style';
 import * as actions from './store/actionCreates';
-import { Icon } from 'antd';
+import { Icon, BackTop } from 'antd';
 
 const MyIcon = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1272983_uk1e3s8tthq.js'
@@ -18,9 +18,7 @@ class Slist extends Component {
     { id: 5, name: '编剧导演' },
     { id: 6, name: '其他' },
   ]
-  componentDidMount() {
-    this.props.handleSingerList();
-  }
+
   render() {
     // console.log(this.props.selectList)
     return (
@@ -64,8 +62,8 @@ class Slist extends Component {
                 this.props.selectList.map((item, index) => {
                   return (
                     <div ref="performBox" key={item.damaiId} className="infoBox">
-                      <div className="singerName" 
-                        onClick={ this.handleChgPage.bind(this,`${item.damaiId}`) }>
+                      <div className="singerName"
+                        onClick={this.handleChgPage.bind(this, `${item.damaiId}`)}>
                         <div className="singerInfo">
                           <div className="littlePic" style={{ backgroundImage: `url(${item.headPic})` }}></div>
                           <div className="littleName">
@@ -83,7 +81,9 @@ class Slist extends Component {
                           {
                             item.performanceInfo.map(performance => {
                               return (
-                                <div key={performance.projectId} className="perform-cell">
+                                <div
+                                  key={performance.projectId} className="perform-cell"
+                                >
                                   <p className="perform-title">{performance.projectName}</p>
                                   <p className="perform-address">
                                     <span className="perform-address-info">{performance.venueCity} / {performance.showTime} / {performance.venueName}
@@ -108,14 +108,24 @@ class Slist extends Component {
                     </div>
                   )
                 })
-              } 
+              }
 
             </div>
           </BottmDetail>
         </MainBox>
+        <BackTop />
+        <strong style={{ color: 'rgba(64, 64, 64, 0.6)' }}></strong>
       </SlistBox>
     )
   }
+  componentDidMount() {
+    // let page = 1
+    // this.props.handleSingerList(page);
+    let type="歌手";
+    this.props.handleSingerList(type);
+    window.addEventListener('scroll', this.onScroll.bind(this))
+  }
+
   showMore = (index) => {
     let aaa = "more" + index
     let bbb = "perform-list" + index
@@ -128,8 +138,34 @@ class Slist extends Component {
     // console.log(name)
     this.props.handleSelect(name)
   }
-  handleChgPage=(id)=>{
+  handleChgPage = (id) => {
     this.props.handleChgDetailPage(id)
+  }
+
+  /**
+     * 滚动条滚动事件
+     */
+
+  onScroll() {
+    // 判断当前是否滚动到了底部
+    let scrollTop = document.documentElement.scrollTop // 滚动条距离顶部的距离
+
+    let scrollHeight = document.body.scrollHeight // 页面的高度
+    let clientHeight = document.documentElement.clientHeight // 可视区域的高度
+    // console.log(scrollTop, scrollHeight, clientHeight);
+
+    if ((scrollHeight - clientHeight) - scrollTop < 50) {
+      // console.log('到底了');
+      if (!this.props.loding) {
+        this.startLoding();
+      }
+    }
+  }
+  startLoding(params) {
+    this.props.handleLoding(params);
+    //console.log(this.props.page);
+    let pages = this.props.page;
+    this.props.handleSingerList(pages);
   }
 }
 
@@ -138,17 +174,22 @@ export default connect(
     return ({
       singerList: slist.singerList,
       selectList: slist.selectList,
+      page: slist.page,
+      loding: slist.loding
     })
   },
   dispatch => ({
-    handleSingerList() {
-      dispatch(actions.asyncSingerList())
+    handleSingerList(page) {
+      dispatch(actions.asyncSingerList(page))
     },
     handleSelect(name) {
       dispatch(actions.selectPerformace(name))
     },
-    handleChgDetailPage(id){// 跳转到特定id的歌手详情页
-      
+    handleChgDetailPage(id) {// 跳转到特定id的歌手详情页
+      this.history.push(`/sdetails/${id}`)
+    },
+    handleLoding() {
+      dispatch(actions.onLoding());
     }
   })
 )(Slist)
