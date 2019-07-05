@@ -11,8 +11,9 @@ import Sdetails from '@/views/Sdetails';
 import Slist from '@/views/Slist';
 import Search from '@/views/search';
 import AuthRoute from './untils/Auth';
-import  Order from '@/views/mine/order'
-import  Coupon from '@/views/mine/coupon'
+import  Order from '@/views/mine/order';
+import  Coupon from '@/views/mine/coupon';
+import Ticket from '@/views/mine/myticket'
 
 export default class App extends Component {
   render() {
@@ -28,6 +29,7 @@ export default class App extends Component {
           <Route component={ Plist } path='/Plist'/>
           <Route component={ Order } path='/order'/>
           <Route component={ Coupon } path='/coupon'/>
+          <Route component={ Ticket } path='/myticket'/>
           <Route component={ Pdetails } path='/Pdetails/:id'/>
           <Route component={ Slist } path='/Slist'/>
           <Route component={ Sdetails } path='/sdetails/:id'/>
