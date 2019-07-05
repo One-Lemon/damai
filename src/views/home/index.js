@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { Icons, SlideShow } from './components';
 import Projuct from './components/project';
 import { MenuNav } from './components/menuNav';
-import { getBigKaList, getDateList } from './store/actionCreate';
+import { getBigKaList, getDateList, getProject } from './store/actionCreate';
 
 const MyIcon = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1270780_uptpx68v6nb.js'
@@ -17,7 +17,8 @@ class Home extends Component {
     super(props);
     this.state = {
       dayList: ['今天', '明天'],
-      activeClass: [1, 0, 0, 0, 0, 0, 0]
+      activeClass: [1, 0, 0, 0, 0, 0, 0],
+      page: 1
     }
   }
   // 获取日期
@@ -77,14 +78,22 @@ class Home extends Component {
   componentDidMount() {
     this.getDateList();
     this.props.getDateList(0);
+    this.props.getProject(this.state.page);
     this.props.getBigKaList();
   }
   boxScroll = (e) => {
-    console.log('剩余', e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight)
+    let boundary = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight;
+    if (boundary < 100 && this.props.open) {
+      let page = this.state.page + 1
+      this.setState({
+        page: page
+      })
+      this.props.getProject(page);
+    }
   }
   render() {
     return (
-      <HomeBox >
+      <HomeBox onScroll={this.boxScroll}>
         <HomeHead>
           <Link to="/address" className="address">
             <MyIcon type="icon-gps" style={{ fontSize: '.5rem', marginRight: '4px' }} />
@@ -100,7 +109,7 @@ class Home extends Component {
             <MyIcon type="icon-yonghu" />
           </Link>
         </HomeHead>
-        <HomeContent onScroll={this.boxScroll}>
+        <HomeContent>
           <SlideShow />
           <Icons />
           <img src="./images/boss.jpg" alt="boss" style={{ width: '100%' }} />
@@ -183,7 +192,8 @@ class Home extends Component {
 const mapStateToProps = (state) => {
   return {
     bigKaList: state.home.bigKaList,
-    dateList: state.home.dateList
+    dateList: state.home.dateList,
+    open: state.home.open
   }
 }
 
@@ -194,6 +204,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     getDateList: index => {
       dispatch(getDateList(index));
+    },
+    getProject: (pageNum) => {
+      dispatch(getProject(pageNum))
     }
   }
 }

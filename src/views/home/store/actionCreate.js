@@ -1,4 +1,4 @@
-import { SETSLIDELIST, SETBIGKALIST, SETDATELIST, SETPROJECT } from './actionType';
+import { SETSLIDELIST, SETBIGKALIST, SETDATELIST, SETPROJECT, CHGOPEN } from './actionType';
 import axios from 'axios';
 
 export const setSlideList = data => {
@@ -59,21 +59,32 @@ export const setProject = data => {
   }
 }
 
-export const getProject = (pageNum) => {
-  let _page = 0;
-  let _limit = 8;
-  return dispatch => {
-    axios.get(`http://localhost:3003/project?_page=${_page}&_limit=${_limit}`)
-      .then(response => response.data)
-      .then(res => {
-        console.log(res);
-        if (res.length <= 0) {
-          console.log('没数据了');
-          return;
-        }
-        dispatch(setProject(res));
-      }).catch(error => {
-        console.log(error);
-      })
+export const getProject = (page) => {
+  //需要修改判断 - -明天
+  return (dispatch, getState) => {
+    let open = getState().home.open;
+    console.log(open);
+    if (open) {
+      dispatch(chgOpen());
+      axios.get(`http://localhost:3003/project?_page=${page}&_limit=8`)
+        .then(response => response.data)
+        .then(res => {
+          if (res.length <= 0) {
+            console.log('没数据了');
+            return;
+          }
+          dispatch(chgOpen());
+          dispatch(setProject(res));
+        }).catch(error => {
+          console.log(error);
+        })
+    }
+  }
+}
+
+export const chgOpen = bool => {
+  return {
+    type: CHGOPEN,
+    bool
   }
 }

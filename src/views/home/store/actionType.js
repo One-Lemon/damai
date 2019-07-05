@@ -4,3 +4,4 @@ export const GETBIGKALIST = 'GETBIGKALIST';
 export const SETBIGKALIST = 'SETBIGKALIST';
 export const SETDATELIST = 'SETDATELIST';
 export const SETPROJECT = 'SETPROJECT';
+export const CHGOPEN = 'CHGOPEN';

@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getProject } from '../store/actionCreate';
 import { ProList } from '../style';
 import { withRouter } from 'react-router-dom';
 
 class Project extends Component {
-  componentDidMount() {
-    this.props.getProject(0);
-  }
   proDetails (id) {
     this.props.history.push('/pdetails?id='+id);
   }
@@ -38,17 +34,17 @@ class Project extends Component {
   }
 }
 
-export const mapDispatchToProps = dispatch => {
-  return {
-    getProject: (pageNum) => {
-      dispatch(getProject(pageNum))
-    }
-  }
-}
+// export const mapDispatchToProps = dispatch => {
+//   return {
+//     getProject: (pageNum) => {
+//       dispatch(getProject(pageNum))
+//     }
+//   }
+// }
 export const mapStateToProps = state => {
   return {
     project: state.home.project
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Project));
+export default connect(mapStateToProps, null)(withRouter(Project));
