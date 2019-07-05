@@ -2,36 +2,37 @@ import React, { Component } from 'react'
 import { List, Button } from 'antd';
 import { ListWrap, Wrapper, HeaderWrap, MainWrap, FootWrap, UserGreeting, GuestGreeting } from './style';
 import { connect } from 'react-redux';
+import { NavLink, Route, Switch } from 'react-router-dom'
 
 
 class Mine extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      display: 'none',
-      isLoggedIn:true
-    }
-  }
+  // constructor(props){
+  //   super(props);
+  //   // this.state = {
+  //   //   display: 'none',
+  //   //   isLoggedIn:true
+  //   // }
+  // }
   render() {
     return (
       <Wrapper>
         <HeaderWrap >
           <div className='Header-Avator'></div>
-          <p className='Header-name'><Greeting isLoggedIn={this.state.isLoggedIn}/></p>
+          <p className='Header-name'><Greeting isLoggedIn={this.props.isLoggedIn}/></p>
         </HeaderWrap>
         <MainWrap>
           <ListWrap>
             <List.Item>
               <div className='main-title'>
                 <i className='iconfont icon-wodedingdan'></i>
-                <span>我的订单</span>
+                <NavLink to='/order'>我的订单</NavLink>
               </div>
               <div className='main-right'><i className='iconfont icon-arrow-right'></i></div>
             </List.Item>
             <List.Item>
               <div className='main-title'>
                 <i className='iconfont icon-youhuijuan'></i>
-                <span>优惠卷</span>
+                <NavLink to='/coupon'>优惠卷</NavLink>
                 </div>
               <div className='main-right'><i className='iconfont icon-arrow-right'></i></div>
             </List.Item>
@@ -89,7 +90,7 @@ class Mine extends Component {
               <div className='main-right'><span>1010-3721</span></div>
             </List.Item>
           </ListWrap>
-          <BtnGreeting isLoggedIn={this.state.isLoggedIn}/>
+          <BtnGreeting isLoggedIn={this.props.isLoggedIn}/>
           <FootWrap>
             <p className='about-link'>关于大麦</p>
             <p className="about-line">|</p>
@@ -103,30 +104,38 @@ class Mine extends Component {
 
 function Greeting(props) {
   // console.log(props);
-  const userInfo= JSON.parse(window.localStorage.getItem('user'));
-  // console.log(userInfo);
+  const userInfo= JSON.parse(window.localStorage.getItem('Sign'));
+  console.log(userInfo);
   // console.log(userInfo[0].username);
   const isLoggedIn = props.isLoggedIn;
   if (isLoggedIn) {
-    return <UserGreeting to=''>{'欢迎___'+userInfo[0].username}</UserGreeting>;
+    return <UserGreeting to=''>{'欢迎___'+userInfo.username}</UserGreeting>;
   }
   return <GuestGreeting to='/login'>登录/注册</GuestGreeting>;
 }
 
 function BtnGreeting(props) {
   const isLoggedIn = props.isLoggedIn;
+  function handleSignOut () {
+    window.localStorage.removeItem('user')
+    window.localStorage.removeItem('visible')
+    window.location.reload()
+  }
   if (isLoggedIn) {
     return (
       <ListWrap>
       <List.Item>
-        <Button style={{width:'100%',border:'0'}} >退出登录</Button>
+        <Button style={{width:'100%',border:'0'}} onClick={handleSignOut}>退出登录</Button>
       </List.Item>
     </ListWrap>
     );
   }
   return null;
 }
-
-export default connect(null,null)(Mine)
+export default connect(
+  ({login}) => ({
+    isLoggedIn: login.isLoggedIn
+})
+,null)(Mine)
 
 
