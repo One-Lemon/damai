@@ -3,7 +3,7 @@ import { HashRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Home from '@/views/home';
 import Login from '@/views/login';
 import Signup from '@/views/signup';
-import Address from '@/views/signup';
+import Address from '@/views/address';
 import Mine from '@/views/mine';
 import Pdetails from '@/views/Pdetails';
 import Plist from '@/views/Plist';

@@ -233,3 +233,12 @@ export const BottmDetail=styled.div`
     }
   }
 `
+
+export const NoMoreWarp=styled.div`
+  width:100%;
+  height:1rem;
+  background:gray;
+  text-align:center;
+  font-size:.12rem;
+  line-height:1rem;
+`

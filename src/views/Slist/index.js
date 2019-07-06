@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { SlistBox, BgBox, BgPic, MainBox, HeadBox, PageTitle, MiddleSelect, BottmDetail } from './style';
+import { SlistBox, BgBox, BgPic, MainBox, HeadBox, PageTitle, MiddleSelect, BottmDetail,NoMoreWarp } from './style';
 import * as actions from './store/actionCreates';
 import { Icon, BackTop } from 'antd';
 
@@ -48,8 +48,9 @@ class Slist extends Component {
             <ul className="navBox">
               {
                 this.nav.map(item => {
-                  return <li key={item.id} className="navLi"
-                    onClick={this.chgSelect.bind(this, `${item.name}`)} >
+                  return <li key={item.id} className="navLi" 
+                    onClick={this.chgSelect.bind(this, `${item.name}`)} 
+                    >
                     {item.name}
                   </li>
                 })
@@ -59,11 +60,12 @@ class Slist extends Component {
           <BottmDetail>
             <div className="detailBox">
               {
-                this.props.selectList.map((item, index) => {
+                this.props.singerList.map((item, index) => {
                   return (
                     <div ref="performBox" key={item.damaiId} className="infoBox">
                       <div className="singerName"
-                        onClick={this.handleChgPage.bind(this, `${item.damaiId}`)}>
+                        onClick={this.handleChgPage.bind(this, `${item.damaiId}`)}
+                        >
                         <div className="singerInfo">
                           <div className="littlePic" style={{ backgroundImage: `url(${item.headPic})` }}></div>
                           <div className="littleName">
@@ -114,18 +116,44 @@ class Slist extends Component {
           </BottmDetail>
         </MainBox>
         <BackTop />
-        <strong style={{ color: 'rgba(64, 64, 64, 0.6)' }}></strong>
+        <NoMoreWarp style={{ display:this.props.isAlert?"block":"none"}}>没有更多了哦</NoMoreWarp>
       </SlistBox>
     )
   }
+
+/**
+     * 滚动条滚动事件
+     */
+
+    onScroll() {
+      // 判断当前是否滚动到了底部
+      let scrollTop = document.documentElement.scrollTop // 滚动条距离顶部的距离
+  
+      let scrollHeight = document.body.scrollHeight // 页面的高度
+      let clientHeight = document.documentElement.clientHeight // 可视区域的高度
+      // console.log(scrollTop, scrollHeight, clientHeight);
+  
+      if ((scrollHeight - clientHeight) - scrollTop < 50) {
+        // console.log('到底了');
+        if (!this.props.loding) {
+          this.startLoding();
+        }
+      }
+    }
+
   componentDidMount() {
     // let page = 1
     // this.props.handleSingerList(page);
-    let type="歌手";
-    this.props.handleSingerList(type);
+    let type=this.props.selectItem;
+    // console.log(type);
+    let page=this.props.page;
+    this.props.handleSingerList(type,page);
+
     window.addEventListener('scroll', this.onScroll.bind(this))
   }
-
+  componentWillUnmount(){
+    window.removeEventListener('scroll',this.onScroll.bind(this))
+  }
   showMore = (index) => {
     let aaa = "more" + index
     let bbb = "perform-list" + index
@@ -133,39 +161,23 @@ class Slist extends Component {
     this.refs[bbb].style.overflowY = "auto";
     this.refs[bbb].style.maxHeight = '';
   }
-
-  chgSelect = (name) => {
-    // console.log(name)
-    this.props.handleSelect(name)
+  chgSelect = (type) => {
+    if(type!==this.props.selectItem){
+      let page=this.props.page;
+      // console.log(page);
+      this.props.handleSelect(type,page);
+    }
   }
   handleChgPage = (id) => {
     this.props.handleChgDetailPage(id)
   }
-
-  /**
-     * 滚动条滚动事件
-     */
-
-  onScroll() {
-    // 判断当前是否滚动到了底部
-    let scrollTop = document.documentElement.scrollTop // 滚动条距离顶部的距离
-
-    let scrollHeight = document.body.scrollHeight // 页面的高度
-    let clientHeight = document.documentElement.clientHeight // 可视区域的高度
-    // console.log(scrollTop, scrollHeight, clientHeight);
-
-    if ((scrollHeight - clientHeight) - scrollTop < 50) {
-      // console.log('到底了');
-      if (!this.props.loding) {
-        this.startLoding();
-      }
-    }
-  }
   startLoding(params) {
-    this.props.handleLoding(params);
+    this.props.handleLoding(params);//修改
+
     //console.log(this.props.page);
     let pages = this.props.page;
-    this.props.handleSingerList(pages);
+    let type=this.props.selectItem;
+    this.props.handleSingerList(type,pages);
   }
 }
 
@@ -173,17 +185,20 @@ export default connect(
   ({ slist }) => {
     return ({
       singerList: slist.singerList,
-      selectList: slist.selectList,
+      selectItem: slist.selectItem,
       page: slist.page,
-      loding: slist.loding
+      loding: slist.loding,
+      isAlert:slist.isAlert
     })
   },
   dispatch => ({
-    handleSingerList(page) {
-      dispatch(actions.asyncSingerList(page))
+    handleSingerList(type,page) {
+      dispatch(actions.asyncSingerList(type,page))
     },
-    handleSelect(name) {
-      dispatch(actions.selectPerformace(name))
+    handleSelect(type,page) {
+      dispatch(actions.initStatePage());// 让state里面的page等于1
+      dispatch(actions.setSelectItem(type));// 让state里面的 selectItem 为type
+      dispatch(actions.asyncSingerList(type,page));
     },
     handleChgDetailPage(id) {// 跳转到特定id的歌手详情页
       this.history.push(`/sdetails/${id}`)

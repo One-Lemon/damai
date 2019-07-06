@@ -36,7 +36,7 @@ class Slist extends Component {
           <BgPic />
         </BgBox>
         <MainBox>
-          <PullToRefresh
+          <PullToRefresh 
             // damping={60}
             ref={el => this.ptr = el}
             // style={{
