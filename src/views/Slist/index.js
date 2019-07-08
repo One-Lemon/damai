@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { SlistBox, BgBox, BgPic, MainBox, HeadBox, PageTitle, MiddleSelect, BottmDetail,NoMoreWarp } from './style';
 import * as actions from './store/actionCreates';
+import BScroll from 'better-scroll';
 import { Icon, BackTop } from 'antd';
+import { log } from 'util';
 
 const MyIcon = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1272983_uk1e3s8tthq.js'
 })
+
 
 class Slist extends Component {
   nav = [
@@ -18,7 +21,7 @@ class Slist extends Component {
     { id: 5, name: '编剧导演' },
     { id: 6, name: '其他' },
   ]
-
+   
   render() {
     // console.log(this.props.selectList)
     return (
@@ -26,7 +29,8 @@ class Slist extends Component {
         <BgBox>
           <BgPic />
         </BgBox>
-        <MainBox>
+        <div className="wrapper">
+          <MainBox>
           <HeadBox>
             <PageTitle>
               <span className='abc'>大咖在大麦</span>
@@ -115,6 +119,7 @@ class Slist extends Component {
             </div>
           </BottmDetail>
         </MainBox>
+        </div>
         <BackTop />
         <NoMoreWarp style={{ display:this.props.isAlert?"block":"none"}}>没有更多了哦</NoMoreWarp>
       </SlistBox>
@@ -141,7 +146,20 @@ class Slist extends Component {
       }
     }
 
+    
+
   componentDidMount() {
+  //  let  wrapper = document.querySelector('.wrapper');
+  //  let scroll = new BScroll(this.wrapper)
+   let a = new BScroll('.wrapper',{
+    scrollY: true,
+    click: true,
+    startY:0
+  })
+
+  console.log(a);
+
+
     // let page = 1
     // this.props.handleSingerList(page);
     let type=this.props.selectItem;
