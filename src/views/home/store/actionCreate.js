@@ -100,12 +100,14 @@ export const setDistance = () => {
   return (dispatch, getState) => {
     // longitude
     let project = getState().home.project;
-    let newProject = project.sort((a, b) => {
-      if (a.longitude > b.longitude) {
+    let sortPropject = project.sort((a, b) => {
+      if (a.priceLow > b.priceLow) {
         return 1
+      } else {
+        return -1
       }
     })
-    console.log(newProject);
-    dispatch(distance(project));
+    console.log(sortPropject);
+    dispatch(distance(sortPropject));
   }
 }

@@ -7,8 +7,8 @@ class Address extends Component {
   componentDidMount() {
     this.props.handleCityData()
   }
-  setCityId=(id)=>{
-    this.props.handleCityId(id);
+  setCityId=(item)=>{
+    this.props.handleCityId(item);
     this.props.history.goBack();
   }
   render() {
@@ -17,7 +17,7 @@ class Address extends Component {
         <LocationWarp>
           <SortTitleWarp>定位城市</SortTitleWarp>
           <CityWarp>
-            <span className="cityBlock">定位失败</span>
+            <span className="cityBlock">{this.props.cityId.name?this.props.cityId.name:'定位失败'}</span>
           </CityWarp>
         </LocationWarp>
         <HotCityWarp>
@@ -29,7 +29,7 @@ class Address extends Component {
                 <span 
                   key={item.damaiId} 
                   className="cityBlock"
-                  onClick={ this.setCityId.bind(this,item.damaiId)}
+                  onClick={ this.setCityId.bind(this,item)}
                   >{item.name}</span>
                 )
               })
@@ -49,7 +49,7 @@ class Address extends Component {
                           return ( 
                           <li 
                             key={city.damaiId}      className="everyCity"
-                            onClick={ this.setCityId.bind(this,city.damaiId)}
+                            onClick={ this.setCityId.bind(this,city)}
                             >
                             {city.name}
                           </li>
@@ -72,7 +72,8 @@ export default connect(
   ({ address }) => {
     return ({
       cityList: address.cityList,
-      hotCityList: address.hotCityList
+      hotCityList: address.hotCityList,
+      cityId: address.cityId
     })
   },
   dispatch => ({

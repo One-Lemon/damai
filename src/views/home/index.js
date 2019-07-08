@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { HomeHead, BigKa, SingList, Recent, HomeBox, HomeContent, SearchBox } from './style';
 import { connect } from 'react-redux';
 import { Icons, SlideShow } from './components';
-import Projuct from './components/project';
+import Project from './components/project';
 import { MenuNav } from './components/menuNav';
 import { getBigKaList, getDateList, getProject } from './store/actionCreate';
 
@@ -92,12 +92,12 @@ class Home extends Component {
         <HomeHead>
           <Link to="/address" className="address">
             <MyIcon type="icon-gps" style={{ fontSize: '.5rem', marginRight: '4px' }} />
-            深圳
+            {this.props.city.name?this.props.city.name:'定位失败'}
          </Link>
           <Link to="/search" style={{ flex: 1 }}>
             <SearchBox>
               <MyIcon type="icon-fangdajing" className='fdj' />
-              <span>搜索明星、演出比赛、场馆</span>
+              <span style={{fontSize: '11px'}}>搜索明星、演出比赛、场馆</span>
             </SearchBox>
           </Link>
           <Link to="/mine" className="mine">
@@ -145,7 +145,7 @@ class Home extends Component {
           <Recent>
             <div className="title">
               近期演出
-            <span>演出日历 ></span>
+            <span onClick={() => {this.props.history.push('/plist')}}>演出日历 ></span>
             </div>
             <div className="date">
               {
@@ -177,7 +177,7 @@ class Home extends Component {
           </Recent>
           <div className="recent-title">更多演出</div>
           <MenuNav />
-          <Projuct />
+          <Project />
         </HomeContent>
       </HomeBox>
     )

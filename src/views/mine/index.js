@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { List, Button } from 'antd';
 import { ListWrap, Wrapper, HeaderWrap, MainWrap, FootWrap, UserGreeting, GuestGreeting } from './style';
 import { connect } from 'react-redux';
-import { NavLink, Route, Switch } from 'react-router-dom'
+import { NavLink} from 'react-router-dom'
 
 
 class Mine extends Component {

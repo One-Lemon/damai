@@ -7,6 +7,9 @@ class Project extends Component {
   proDetails (id) {
     this.props.history.push('/pdetails?id='+id);
   }
+  componentDidUpdate (nextProps) {
+    console.log('此处有bug')
+  }
   render() {
     return (
       <ProList>

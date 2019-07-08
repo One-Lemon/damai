@@ -44,9 +44,7 @@ class MenuN extends Component {
 	useDistance = () => {
 		this.setState({ paixu: false })
 		this.props.setDistance();
-		console.log(111)
 	}	
-
 	render() {
 		return (
 			<Menus>
@@ -54,7 +52,7 @@ class MenuN extends Component {
 					<li onClick={this.chgShow.bind(this, 0)}>{this.state.itemTitle}</li>
 					<li onClick={this.chgShow.bind(this, 1)}>{this.state.timeTitle}</li>
 					<li style={{ color: this.state.paixu ? 'red' : '' }} onClick={() => { this.setState({ paixu: true }) }}>推荐排序</li>
-					<li style={{ color: this.state.paixu ? '' : 'red' }} onClick={this.useDistance}>距离最近</li>
+					<li style={{ color: this.state.paixu ? '' : 'red' }} onClick={this.useDistance}>价格最低</li>
 				</ul>
 				<div className="content">
 					<ul style={{ display: this.state.show[0] ? 'block' : 'none' }}>

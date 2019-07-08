@@ -5,7 +5,7 @@ import { SlistBox, BgBox, BgPic, MainBox, HeadBox, PageTitle, MiddleSelect, Bott
 import * as actions from './store/actionCreates';
 import BScroll from 'better-scroll';
 import { Icon, BackTop } from 'antd';
-import { log } from 'util';
+// import { log } from 'util';
 
 const MyIcon = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1272983_uk1e3s8tthq.js'

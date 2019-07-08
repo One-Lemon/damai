@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Tabs,Badge } from 'antd-mobile';
+import { Tabs } from 'antd-mobile';
 import { WhiteSpaceWrap, Boxfl } from './style'
 
 const tabs = [
