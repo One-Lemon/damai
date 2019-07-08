@@ -1,4 +1,4 @@
-import { SETSLIDELIST, SETBIGKALIST, SETDATELIST, SETPROJECT, CHGOPEN } from './actionType';
+import { SETSLIDELIST, SETBIGKALIST, SETDATELIST, SETPROJECT, CHGOPEN, DISTANCE } from './actionType';
 import axios from 'axios';
 
 export const setSlideList = data => {
@@ -59,10 +59,11 @@ export const setProject = data => {
   }
 }
 
-export const getProject = (page) => {
+export const getProject = () => {
   //需要修改判断 - -明天
   return (dispatch, getState) => {
     let open = getState().home.open;
+    let page = getState().home.page;
     console.log(open);
     if (open) {
       dispatch(chgOpen());
@@ -82,9 +83,29 @@ export const getProject = (page) => {
   }
 }
 
-export const chgOpen = bool => {
+export const chgOpen = () => {
   return {
-    type: CHGOPEN,
-    bool
+    type: CHGOPEN
+  }
+}
+
+export const distance = data => {
+  return {
+    type: DISTANCE,
+    data
+  }
+}
+
+export const setDistance = () => {
+  return (dispatch, getState) => {
+    // longitude
+    let project = getState().home.project;
+    let newProject = project.sort((a, b) => {
+      if (a.longitude > b.longitude) {
+        return 1
+      }
+    })
+    console.log(newProject);
+    dispatch(distance(project));
   }
 }

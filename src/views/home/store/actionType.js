@@ -5,3 +5,4 @@ export const SETBIGKALIST = 'SETBIGKALIST';
 export const SETDATELIST = 'SETDATELIST';
 export const SETPROJECT = 'SETPROJECT';
 export const CHGOPEN = 'CHGOPEN';
+export const DISTANCE = 'DISTANCE';

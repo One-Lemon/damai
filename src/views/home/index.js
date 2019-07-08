@@ -17,8 +17,7 @@ class Home extends Component {
     super(props);
     this.state = {
       dayList: ['今天', '明天'],
-      activeClass: [1, 0, 0, 0, 0, 0, 0],
-      page: 1
+      activeClass: [1, 0, 0, 0, 0, 0, 0]
     }
   }
   // 获取日期
@@ -78,17 +77,13 @@ class Home extends Component {
   componentDidMount() {
     this.getDateList();
     this.props.getDateList(0);
-    this.props.getProject(this.state.page);
+    this.props.getProject();
     this.props.getBigKaList();
   }
   boxScroll = (e) => {
     let boundary = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight;
     if (boundary < 100 && this.props.open) {
-      let page = this.state.page + 1
-      this.setState({
-        page: page
-      })
-      this.props.getProject(page);
+      this.props.getProject();
     }
   }
   render() {
@@ -116,9 +111,9 @@ class Home extends Component {
           <div style={{ marginTop: '.56rem' }}>
             <BigKa>
               大咖在大麦
-            <Link to="/">查看更多<MyIcon type="icon-gengduo" /></Link>
+            <Link to="/slist">查看更多<MyIcon type="icon-gengduo" /></Link>
             </BigKa>
-            <SingList>
+            <SingList onScroll={(e)=>{e.stopPropagation()}}>
               <ul>
                 {
                   this.props.bigKaList.map(item => {
@@ -160,7 +155,7 @@ class Home extends Component {
                 })
               }
             </div>
-            <div className="card">
+            <div className="card"  onScroll={(e)=>{e.stopPropagation()}}>
               <ul>
                 {
                   this.props.dateList.map(item => {
@@ -193,7 +188,8 @@ const mapStateToProps = (state) => {
   return {
     bigKaList: state.home.bigKaList,
     dateList: state.home.dateList,
-    open: state.home.open
+    open: state.home.open,
+    page: state.home.page
   }
 }
 
@@ -205,8 +201,8 @@ const mapDispatchToProps = (dispatch) => {
     getDateList: index => {
       dispatch(getDateList(index));
     },
-    getProject: (pageNum) => {
-      dispatch(getProject(pageNum))
+    getProject: () => {
+      dispatch(getProject())
     }
   }
 }

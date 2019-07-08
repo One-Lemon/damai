@@ -1,10 +1,11 @@
-import { SETSLIDELIST, SETBIGKALIST, SETDATELIST, SETPROJECT, CHGOPEN } from './actionType';
+import { SETSLIDELIST, SETBIGKALIST, SETDATELIST, SETPROJECT, CHGOPEN, DISTANCE } from './actionType';
 const initState = {
   slideList: [],
   bigKaList: [],
   dateList: [],
   project: [],
-  open: true
+  open: true,
+  page: 1
 }
 export default (state = initState, action) => {
   let newState = JSON.parse(JSON.stringify(state));
@@ -20,10 +21,12 @@ export default (state = initState, action) => {
       break;
     case SETPROJECT:
       newState.project = newState.project.concat(action.data);
+      newState.page++;
       break;
     case CHGOPEN:
       newState.open = !newState.open;
-      console.log(newState.open);
+      break;
+    case DISTANCE:
       break;
     default:
       break;

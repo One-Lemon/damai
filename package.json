@@ -1,6 +1,7 @@
 {
   "name": "lianjia",
   "version": "0.1.0",
+  "homepage": "lianjia",
   "private": true,
   "dependencies": {
     "antd": "^3.19.8",
