@@ -39,7 +39,7 @@ class Mine extends Component {
             <List.Item>
               <div className='main-title'>
                 <i className='iconfont icon--wodeyouhuijuan'></i>
-                <span>我的票</span>
+                <NavLink to='/myticket'>我的票</NavLink>
               </div>
               <div className='main-right'><i className='iconfont icon-arrow-right'></i></div>
             </List.Item>
