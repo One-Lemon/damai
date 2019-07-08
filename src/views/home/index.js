@@ -189,7 +189,8 @@ const mapStateToProps = (state) => {
     bigKaList: state.home.bigKaList,
     dateList: state.home.dateList,
     open: state.home.open,
-    page: state.home.page
+    page: state.home.page,
+    city: state.address.cityId
   }
 }
 

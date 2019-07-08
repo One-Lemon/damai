@@ -1,0 +1,1 @@
+export const SET_HOT_SEARCH_LIST='search/set_hot_search_list'
